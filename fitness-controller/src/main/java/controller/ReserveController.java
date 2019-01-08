@@ -27,7 +27,7 @@ public class ReserveController {
 	 * 新增
 	 * @param request
 	 * @return
-	 */
+	 * /
 	@RequestMapping(value="/insert.do")
 	public @ResponseBody RequestResultVO insert(HttpServletRequest request){
 		String reserveString = request.getParameter("reserve");
