@@ -644,6 +644,11 @@ public class ReserveExample {
             addCriterion("amend_time not between", value1, value2, "amendTime");
             return (Criteria) this;
         }
+
+        public Criteria andStatusEqualTo(String value) {
+            addCriterion("status =", value, "status");
+            return (Criteria) this;
+        }
     }
 
     /**

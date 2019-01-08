@@ -1,6 +1,7 @@
 package service.impl;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -9,6 +10,11 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import mapper.CourseInstanceMapper;
+import mapper.CourseMapper;
+import mapper.UserMapper;
+import model.CourseInstance;
+import model.UserCourse;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
 
@@ -23,6 +29,8 @@ import page.Page;
 import common.util.DateJsonValueProcessor;
 import common.util.HttpResponseConstants.Public;
 import pojo.RequestResultVO;
+import service.UserCourseService;
+import service.UserService;
 import service.commonService.DataAuthorizeService;
 import service.commonService.util.ResultBuilder;
 import service.commonService.CommonService;
@@ -41,6 +49,21 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Autowired
     private DataAuthorizeService dataAuthorizeService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private CourseInstanceMapper courseInstanceMapper;
+
+    @Autowired
+    private UserCourseService userCourseService;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private CourseMapper courseMapper;
 
     private CommonService<Reserve, ReserveMapper, ReserveExample> commonService;
 
@@ -91,7 +114,7 @@ public class ReserveServiceImpl implements ReserveService {
         Page page = new Page();
         page.setBegin(pageNow);
         page.setLength(pageSize);
-        reserveExample.setOrderByClause("reserveId desc");
+        reserveExample.setOrderByClause("reserve_id desc");
         reserveExample.setPage(page);
         List<Reserve> reserves = reserveMapper.selectByExample(reserveExample);
 
@@ -111,6 +134,48 @@ public class ReserveServiceImpl implements ReserveService {
         return map;
     }
 
+    @Override
+    public RequestResultVO reserve(Integer courseInstanceId) {
+        if (courseInstanceId == null) {
+            throw new BizException(Public.ERROR_700);
+        }
+        Reserve reserve = new Reserve();
+        reserve.setCourseInstanceId(courseInstanceId);
+        reserve.setUserId(userService.getSessionUser().getUserId());
+        reserve.setStatus("待开始");
+        dataAuthorizeService.addDataAuthorizeInfo(reserve, "insert");
+        reserveMapper.insert(reserve);
+        CourseInstance courseInstance = courseInstanceMapper.selectByPrimaryKey(courseInstanceId);
+        courseInstance.setRemainingReserve(courseInstance.getRemainingReserve() - 1);
+        courseInstanceMapper.updateByPrimaryKey(courseInstance);
+        UserCourse userCourse = userCourseService.findByCourseAndUserNotFinished(courseInstance.getCourseId(), userService.getSessionUser().getUserId());
+        userCourse.setRemainingNum(userCourse.getRemainingNum() - 1);
+        userCourseService.update(userCourse);
+        return ResultBuilder.buildSuccessResult(Public.RESERVE_COURSE_SUCCESS, "");
+    }
+
+    @Override
+    public Map<String, Object> getReserveNotStarted() {
+        ReserveExample reserveExample = new ReserveExample();
+        ReserveExample.Criteria criteria = reserveExample.createCriteria();
+        criteria.andStatusEqualTo("待开始");
+        criteria.andUserIdEqualTo(userService.getSessionUser().getUserId());
+        reserveExample.setOrderByClause("reserve_id desc");
+        List<Reserve> reserves = reserveMapper.selectByExample(reserveExample);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        JsonConfig config = new JsonConfig();
+        config.setIgnoreDefaultExcludes(false);
+        config.registerJsonValueProcessor(Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
+        try {
+            map.put("aaData", JSONArray.fromObject(this.creatVos(reserves), config));
+        } catch (Exception e) {
+            LogUtil.error(ErrorLoggers.ERROR_LOGGER, e.getMessage());
+            throw new BizException(Public.ERROR_100);
+        }
+        return map;
+    }
+
     private void setCriteria(String keys, ReserveExample reserveExample) {
         if (keys == null || "{}".equals(keys))
             return;
@@ -124,6 +189,12 @@ public class ReserveServiceImpl implements ReserveService {
         for (Reserve reserve : reserves) {
             ReserveVO reserveVO = new ReserveVO();
             BeanUtils.copyProperties(reserve, reserveVO);
+            reserveVO.setCoachName(userMapper.selectByPrimaryKey(reserve.getUserId()).getName());
+            CourseInstance courseInstance = courseInstanceMapper.selectByPrimaryKey(reserve.getCourseInstanceId());
+            reserveVO.setCourseName(courseMapper.selectByPrimaryKey(courseInstance.getCourseId()).getName());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+            reserveVO.setCourseTime(simpleDateFormat.format(courseInstance.getCourseTime()));
             commonService.addBaseModel(reserve, reserveVO);
             reserveVOs.add(reserveVO);
         }

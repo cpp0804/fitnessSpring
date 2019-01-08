@@ -16,6 +16,9 @@ public interface UserCourseService {
 
     public Map<String,Object> getByPage(String keys, Integer pageSize, Integer pageNow);
 
+	public Map<String,Object> getByPageUser();
+
+	public UserCourse findByCourseAndUserNotFinished(Integer courseId,Integer userId);//0表示已完成，1表示正在上课中
     }
 
 

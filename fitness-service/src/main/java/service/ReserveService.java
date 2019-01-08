@@ -16,6 +16,9 @@ public interface ReserveService {
 
     public Map<String,Object> getByPage(String keys, Integer pageSize, Integer pageNow);
 
+    public RequestResultVO reserve(Integer courseInstanceId);
+
+    public Map<String,Object> getReserveNotStarted();
     }
 
 

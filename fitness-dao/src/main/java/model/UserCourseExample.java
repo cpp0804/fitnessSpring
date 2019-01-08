@@ -465,6 +465,16 @@ public class UserCourseExample {
             return (Criteria) this;
         }
 
+        public Criteria andRemainingNumGreaterThan(Integer value) {
+            addCriterion("remaining_num >", value, "remainingNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemainingNumLessThanOrEqualTo(Integer value) {
+            addCriterion("remaining_num <=", value, "remainingNum");
+            return (Criteria) this;
+        }
+
         public Criteria andCreatorIsNull() {
             addCriterion("creator is null");
             return (Criteria) this;

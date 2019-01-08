@@ -39,6 +39,7 @@ public class UserCourse implements Serializable {
      * @mbg.generated Mon Dec 31 09:59:50 CST 2018
      */
     private Integer courseNum;
+    private Integer remainingNum;
 
     /**
      *
@@ -274,6 +275,14 @@ public class UserCourse implements Serializable {
      */
     public void setAmendTime(Date amendTime) {
         this.amendTime = amendTime;
+    }
+
+    public void setRemainingNum(Integer remainingNum) {
+        this.remainingNum = remainingNum;
+    }
+
+    public Integer getRemainingNum() {
+        return remainingNum;
     }
 
     /**

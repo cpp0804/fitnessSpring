@@ -9,7 +9,9 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import mapper.CourseMapper;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
 import org.springframework.beans.BeanUtils;
@@ -23,6 +25,8 @@ import page.Page;
 import common.util.DateJsonValueProcessor;
 import common.util.HttpResponseConstants.Public;
 import pojo.RequestResultVO;
+import service.CourseService;
+import service.UserService;
 import service.commonService.DataAuthorizeService;
 import service.commonService.util.ResultBuilder;
 import service.commonService.CommonService;
@@ -37,10 +41,16 @@ import service.UserCourseService;
 public class UserCourseServiceImpl implements UserCourseService {
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private UserCourseMapper userCourseMapper;
 
     @Autowired
     private DataAuthorizeService dataAuthorizeService;
+
+    @Autowired
+    private CourseMapper courseMapper;
 
     private CommonService<UserCourse, UserCourseMapper, UserCourseExample> commonService;
 
@@ -57,7 +67,7 @@ public class UserCourseServiceImpl implements UserCourseService {
         }
         dataAuthorizeService.addDataAuthorizeInfo(userCourse, "insert");
         userCourseMapper.insert(userCourse);
-        return ResultBuilder.buildSuccessResult(Public.SUCCESS_200, "");
+        return ResultBuilder.buildSuccessResult(Public.BUY_COURSE_SUCCESS, "");
     }
 
     @Override
@@ -111,6 +121,36 @@ public class UserCourseServiceImpl implements UserCourseService {
         return map;
     }
 
+    @Override
+    public Map<String, Object> getByPageUser() {
+        UserCourseExample userCourseExample = new UserCourseExample();
+        UserCourseExample.Criteria criteria = userCourseExample.createCriteria();
+        criteria.andUserIdEqualTo(userService.getSessionUser().getUserId());
+        criteria.andRemainingNumGreaterThan(0);
+        List<UserCourse> userCourses = userCourseMapper.selectByExample(userCourseExample);
+        Map<String, Object> map = new HashMap<String, Object>();
+        JsonConfig config = new JsonConfig();
+        config.setIgnoreDefaultExcludes(false);
+        config.registerJsonValueProcessor(Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
+        try {
+            map.put("aaData", JSONArray.fromObject(this.creatVos(userCourses), config));
+        } catch (Exception e) {
+            LogUtil.error(ErrorLoggers.ERROR_LOGGER, e.getMessage());
+            throw new BizException(Public.ERROR_100);
+        }
+        return map;
+    }
+
+    @Override
+    public UserCourse findByCourseAndUserNotFinished(Integer courseId, Integer userId) {
+        UserCourseExample userCourseExample = new UserCourseExample();
+        UserCourseExample.Criteria criteria = userCourseExample.createCriteria();
+        criteria.andCourseIdEqualTo(courseId);
+        criteria.andUserIdEqualTo(userId);
+        criteria.andRemainingNumGreaterThan(0);
+        return userCourseMapper.selectByExample(userCourseExample).get(0);
+    }
+
     private void setCriteria(String keys, UserCourseExample userCourseExample) {
         if (keys == null || "{}".equals(keys))
             return;
@@ -124,6 +164,7 @@ public class UserCourseServiceImpl implements UserCourseService {
         for (UserCourse userCourse : userCourses) {
             UserCourseVO userCourseVO = new UserCourseVO();
             BeanUtils.copyProperties(userCourse, userCourseVO);
+            userCourseVO.setCourseName(courseMapper.selectByPrimaryKey(userCourse.getCourseId()).getName());
             commonService.addBaseModel(userCourse, userCourseVO);
             userCourseVOs.add(userCourseVO);
         }
