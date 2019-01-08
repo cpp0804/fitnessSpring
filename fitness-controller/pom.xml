@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>fitness-controller</artifactId>
-    <packaging>war</packaging>
+    <packaging>war </packaging>
 
     <name>fitness-controller Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
