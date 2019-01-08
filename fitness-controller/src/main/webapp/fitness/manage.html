@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>健身课程预约管理系统</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery-accordion-menu.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/manage.css">
+    <script src="lib/jquery/jquery-2.1.0.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery-accordion-menu.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="header-left">健身课程预约管理系统</div>
+    <div class="header-right">
+        <!--<a href="#"><span class="glyphicon glyphicon-cog"></span> 系统设置</a>-->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-log-in"></span> 登录信息<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu menu-table">
+                <li><i class="fa fa-user-circle fa-fw"></i>用户名:</li>
+                <li><i class="fa fa-power-off fa-fw"></i>注销</li>
+            </ul>
+        </li>
+    </div>
+
+</div>
+<div class="menu">
+    <div class="menu-item">
+        <div class="main-menu" onclick="show('perInfo.html')">
+            <i class="fa fa-user-circle-o fa-lg menu-icon"></i>
+            个人信息
+        </div>
+
+    </div>
+    <div class="menu-item">
+        <div class="main-menu">
+            <i class="fa fa-home fa-lg menu-icon"></i>
+            我的课程
+            <span class="angle-icon"><i class="fa fa-angle-right  "></i></span>
+        </div>
+        <ul>
+            <li class="child-menu" onclick="show('classList.html')">课程列表</li>
+            <li class="child-menu" onclick="show('classBooking.html')">课程预约</li>
+        </ul>
+    </div>
+    <!--<div class="menu-item">
+        <div class="main-menu">
+            <i class="fa fa-bullhorn fa-lg menu-icon"></i>
+            我的消息
+            <span class="angle-icon"><i class="fa fa-angle-right"></i></span>
+        </div>
+        <ul>
+            <li class="child-menu">个人消息</li>
+            <li class="child-menu">官网消息</li>
+        </ul>
+    </div>-->
+    <div class="menu-item">
+        <div class="main-menu" onclick="show('timetable.html')">
+            <i class="fa fa-calendar fa-lg menu-icon"></i>
+            课表
+            <!--<span class="angle-icon"><i class="fa fa-angle-right"></i></span>-->
+        </div>
+    </div>
+</div>
+
+<iframe scrolling="auto" frameborder="0"  src="perInfo.html" style="width:950px;height:100%;margin-left: 200px;"></iframe>
+</body>
+<script type="text/javascript">
+    $('.main-menu').click(function(){
+        $(this).next().slideToggle();
+        var has = $(this).find('.angle-icon').hasClass("fa-rotate-90");
+        if(has){
+            $(this).find('.angle-icon').removeClass("fa-rotate-90");
+        }else{
+            $(this).find('.angle-icon').addClass("fa-rotate-90");
+        }
+    });
+    var menuwidth = $('.menu').width();
+    var sreenwidth = window.screen.width;
+    var framewidth = sreenwidth - menuwidth;
+    $('iframe').width(parseInt(framewidth) );
+    function show(url){
+        $('iframe').attr('src',url);
+    }
+</script>
+</html>

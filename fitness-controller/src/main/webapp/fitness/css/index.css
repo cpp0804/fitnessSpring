@@ -1,0 +1,1070 @@
+/*=============base css==============*/
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei",sans-serif;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+a:hover {
+    text-decoration: none;
+    color: #333;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+@font-face {
+    font-family: 'wjs';
+    src:
+    url("font/MiFie-Web-Font.svg") format('svg'),
+    url("font/MiFie-Web-Font.eot") format('embedded-opentype'),
+    url("font/MiFie-Web-Font.ttf") format('truetype'),
+    url("font/MiFie-Web-Font.woff") format('woff');
+}
+.wjs-icon {
+    font-family: wjs;
+}
+.wjs-icon-phone::before {
+    content: '\e908';
+}
+.wjs-icon-tel::before {
+    content: '\e909';
+}
+.wjs-icon-logo::before {
+    content: '\e920';
+}
+.wjs-icon-name::before {
+    content: '\e93e';
+}
+.wjs-icon-money::before {
+     content: '\e903';
+ }
+.wjs-icon-clock::before {
+    content: '\e906';
+}
+.wjs-icon-video::before {
+    content: '\e905';
+}
+.wjs-icon-new1::before {
+    content: '\e90e';
+}
+.wjs-icon-new2::before {
+    content: '\e90f';
+}
+.wjs-icon-new3::before {
+    content: '\e910';
+}
+.wjs-icon-new4::before {
+    content: '\e911';
+}
+.wjs-icon-partner1::before {
+    content:'\e946';
+}
+.wjs-icon-partner2::before {
+    content:'\e92f';
+}
+.wjs-icon-partner3::before {
+    content:'\e92e';
+}
+.wjs-icon-partner4::before {
+    content:'\e92a';
+}
+.wjs-icon-partner5::before {
+    content:'\e929';
+}
+.wjs-icon-partner6::before {
+    content:'\e931';
+}
+.wjs-icon-partner7::before {
+    content:'\e92c';
+}
+.wjs-icon-partner8::before {
+    content:'\e92b';
+}
+.wjs-icon-partner9::before {
+    content:'\e92d';
+}
+
+    /*=======model css==========*/
+/*头部*/
+/*.wjs_header {
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    color: #666;
+}
+.wjs_header .row{
+
+}
+.wjs_header .row div{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.wjs_header .row div + div{
+    border-left: 1px solid #ccc;
+}
+.wjs_header .row .wjs_app {
+    display: block;
+
+}
+.wjs_header .row .wjs_app:hover img {
+    display: block;
+    z-index: 1001;
+}
+.wjs_header .row .wjs_app img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    border: 1px solid #ccc;
+    border-top: none;
+    top: 40px;
+}
+.wjs_header .row div .wjs_register{
+    margin-top: -5px;
+    margin-right: 10px;
+}*/
+/*导航栏*/
+
+.wjs_nav .container .navbar-brand .title{
+    font-size: 36px;
+    color: #e92322;
+    vertical-align: middle;
+}
+.wjs_nav .container .navbar-brand .title2{
+    font-size: 32px;
+    vertical-align: middle;
+    color: #cccccc;
+}
+.wjs_nav {
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.wjs_nav .navbar-nav .active{
+    color:#e92322;
+}
+.wjs_nav .navbar-brand {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+}
+.wjs_nav .navbar-brand:hover,
+.wjs_nav .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+.wjs_nav .navbar-text {
+    color: #777;
+}
+.wjs_nav .navbar-nav > li > a {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+}
+.wjs_nav .navbar-nav > li > a:hover,
+.wjs_nav .navbar-nav > li > a:focus {
+    color: #666;
+    background-color: transparent;
+    border-bottom: 3px solid #c9302c;
+}
+.wjs_nav .navbar-nav > .active > a,
+.wjs_nav .navbar-nav > .active > a:hover,
+.wjs_nav .navbar-nav > .active > a:focus {
+    color: #e92322;
+    background-color: transparent;
+    border-bottom: 3px solid #c9302c;
+}
+.wjs_nav .navbar-nav > .disabled > a,
+.wjs_nav .navbar-nav > .disabled > a:hover,
+.wjs_nav .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+.wjs_nav .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 23px;
+}
+.wjs_nav .navbar-toggle:hover,
+.wjs_nav .navbar-toggle:focus {
+    background-color: #ddd;
+}
+.wjs_nav .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.wjs_nav .navbar-collapse,
+.wjs_nav .navbar-form {
+    border-color: #e7e7e7;
+}
+.wjs_nav .navbar-nav > .open > a,
+.wjs_nav .navbar-nav > .open > a:hover,
+.wjs_nav .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+@media (max-width: 767px) {
+    .wjs_nav .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .wjs_nav .navbar-nav .open .dropdown-menu > li > a:hover,
+    .wjs_nav .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+    .wjs_nav .navbar-nav .open .dropdown-menu > .active > a,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+    .wjs_nav .navbar-nav .open .dropdown-menu > .disabled > a,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+}
+.wjs_nav .navbar-link {
+    color: #777;
+}
+.wjs_nav .navbar-link:hover {
+    color: #333;
+}
+.wjs_nav .btn-link {
+    color: #777;
+}
+.wjs_nav .btn-link:hover,
+.wjs_nav .btn-link:focus {
+    color: #333;
+}
+.wjs_nav .btn-link[disabled]:hover,
+fieldset[disabled] .wjs_nav .btn-link:hover,
+.wjs_nav .btn-link[disabled]:focus,
+fieldset[disabled] .wjs_nav .btn-link:focus {
+    color: #ccc;
+}
+
+/*===================轮播图===================*/
+
+.default-image-item {
+    display: block;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+.mobile-image-item {
+    display: block;
+    width: 100%;
+}
+.mobile-image-item img {
+    display: block;
+    width: 100%;
+}
+/*健身模块1*/
+.fit .container{
+    padding-top:80px;
+    position: relative;
+}
+.fit .container img{
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.fit .container .title{
+    font-size: 36px;
+    color: #2b2b2b;
+    position: absolute;
+    top: 35%;
+    left: 36%;
+}
+.fit .container .title1{
+    font-size: 14px;
+    color: #ccc;
+    position: absolute;
+    top: 44%;
+    left: 36%;
+}
+.fit .container .title2{
+    font-size: 15px;
+    color: #999999;
+    max-width: 720px;
+    position: absolute;
+    top: 50%;
+    left: 36%;
+}
+
+/*课程模块*/
+.course{
+    width: 100%;
+    padding-top: 15px;
+}
+.course .container{
+    width: 1200px;
+    position: relative;
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .course .container{
+        width: 900px;
+    }
+}
+.course_title{
+    width: 600px;
+}
+.course .course_name{
+     width: 600px;
+     font-size: 32px;
+     color: #2b2b2b;
+ }
+.course .course_des{
+    padding-top: 15px;
+    width: 600px;
+    font-size: 16px;
+    color: #666;
+}
+.course .course_enter{
+    float: left;
+    padding-top: 15px;
+    padding-left: 100px;
+    max-width: 600px;
+
+}
+.course .course_enter .course_enter1{
+    display: inline-block;
+    width: 184px;
+    height: 40px;
+    background: url("../images/bg.jpg") no-repeat;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+
+}
+.course .course_enter .course_enter2{
+    display: inline-block;
+    width: 184px;
+    height: 40px;
+    background: url("../images/bg.jpg") no-repeat;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+
+}
+.course .course_enter .course_enter1 a,
+.course .course_enter .course_enter2 a{
+    color: #fff;
+}
+.course .images{
+    padding-top: 30px;
+}
+
+
+/*计划部分*/
+
+.plan{
+    width: 100%;
+    padding-top: 120px;
+}
+.plan .container{
+    width: 1200px;
+    position: relative;
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .plan .container{
+        width: 900px;
+    }
+}
+.plan_title{
+    width: 600px;
+}
+.plan .plan_name{
+    width: 600px;
+    font-size: 32px;
+    color: #2b2b2b;
+}
+.plan .plan_des{
+    padding-top: 15px;
+    width: 600px;
+    font-size: 16px;
+    color: #666;
+}
+.plan .plan_enter{
+    float: left;
+    padding-top: 15px;
+    padding-left: 100px;
+    max-width: 600px;
+
+}
+.plan .plan_enter .plan_enter1{
+    display: inline-block;
+    width: 184px;
+    height: 40px;
+    background: url("../images/bg.jpg") no-repeat;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+
+}
+.plan .plan_enter .plan_enter2{
+    display: inline-block;
+    width: 184px;
+    height: 40px;
+    background: url("../images/bg.jpg") no-repeat;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+
+}
+.plan .plan_enter .plan_enter1 a,
+.plan .plan_enter .plan_enter2 a{
+    color: #fff;
+}
+.plan .images{
+    padding-top: 30px;
+}
+
+
+
+
+/*信息板块*/
+.wjs_info {
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.wjs_info .container{
+    width: 900px;
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .wjs_info .container{
+        width: 750px;
+    }
+}
+.wjs_info .container a{
+    display: block;
+    padding: 15px;
+    color: #666;
+}
+.wjs_info .container a:hover{
+    color: #e92322;
+}
+.wjs_info .container .wjs-icon-money{
+    font-size: 30px;
+}
+
+/*预约板块*/
+.wjs_order {
+    padding: 40px 0;
+    border-bottom: 1px solid #ccc;
+}
+.wjs_order .container{
+    width: 900px;
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .wjs_order .container{
+        width: 750px;
+    }
+}
+@media (max-width:768px){
+    .wjs_order .container{
+        width: 100%;
+    }
+}
+.wjs_order .container .wjs-icon{
+    font-size: 20px;
+}
+.wjs_order .container .order{
+    color: #e92322;
+    border-bottom: 1px dashed #e92322;
+}
+.wjs_order .container .video:hover{
+    color: #e92322;
+}
+
+/*产品板块*/
+
+.wjs_pro {
+    padding: 50px 0;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+.wjs_pro .nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+.wjs_pro .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+    margin-left: 15px;
+}
+.wjs_pro .nav-tabs > li a:hover {
+    background-color: transparent;
+}
+.wjs_pro .nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.wjs_pro .nav-tabs > li.active > a,
+.wjs_pro .nav-tabs > li.active > a:hover,
+.wjs_pro .nav-tabs > li.active > a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0,0,0,0);
+    border-bottom: 3px solid #e92322;
+}
+.wjs_pro .nav-tabs.nav-justified {
+    width: 100%;
+    border-bottom: 0;
+}
+.wjs_pro .nav-tabs.nav-justified > li {
+    float: none;
+}
+.wjs_pro .nav-tabs.nav-justified > li > a {
+    margin-bottom: 5px;
+    text-align: center;
+}
+.wjs_pro .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+}
+@media (min-width: 768px) {
+    .wjs_pro .nav-tabs.nav-justified > li {
+        display: table-cell;
+        width: 1%;
+    }
+    .wjs_pro .nav-tabs.nav-justified > li > a {
+        margin-bottom: 0;
+    }
+}
+.wjs_pro .nav-tabs.nav-justified > li > a {
+    margin-right: 0;
+    border-radius: 4px;
+}
+.wjs_pro .nav-tabs.nav-justified > .active > a,
+.wjs_pro .nav-tabs.nav-justified > .active > a:hover,
+.wjs_pro .nav-tabs.nav-justified > .active > a:focus {
+    border: 1px solid #ddd;
+}
+@media (min-width: 768px) {
+    .wjs_pro .nav-tabs.nav-justified > li > a {
+        border-bottom: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+    }
+    .wjs_pro .nav-tabs.nav-justified > .active > a,
+    .wjs_pro .nav-tabs.nav-justified > .active > a:hover,
+    .wjs_pro .nav-tabs.nav-justified > .active > a:focus {
+        border-bottom-color: #fff;
+    }
+}
+
+/* 产品模块-内容-01 */
+.pro_box {
+    display: block;
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    margin-top: 30px;
+    box-shadow: 3px 3px 5px #d8d8d8;
+}
+.pro_box.active {
+    background-color: #e92322;
+}
+
+.pro_box .pr {
+    float: right;
+    width: 80px;
+    height: 150px;
+    border-left: 1px dashed #ccc;
+    position: relative;
+}
+.pro_box .pr p{
+    text-align: center;
+    color: #666;
+    margin-top: 25px;
+}
+.pro_box.active p{
+    color: #fff;
+}
+.pro_box .pr p:last-child{
+    margin-top: 0;
+}
+.pro_box .pr p b {
+    color: #e92322;
+    font-size: 50px;
+}
+.pro_box.active .pr p b {
+    color: #fff;
+}
+.pro_box .pr p sub {
+    bottom: 0;
+}
+.pro_box .pr::after,
+.pro_box .pr::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: absolute;
+    left: -6px;
+}
+.pro_box .pr::after {
+    top: -6px;
+
+    box-shadow: 0 -2px 2px #d8d8d8 inset;
+}
+.pro_box .pr::before {
+    bottom: -6px;
+    box-shadow: 0 2px 2px #d8d8d8 inset;
+}
+.pro_box .pr .tips {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    display: block;
+}
+.pro_box .pr .tips span:first-of-type{
+    color: #e92322;
+    border: 1px solid #e92322;
+    width: 16px;
+    height: 16px;
+    line-height: 12px;
+    display: inline-block;
+}
+.pro_box .pr .tips span:last-of-type {
+    color: #50aa50;
+    width: 16px;
+    height: 16px;
+    line-height: 12px;
+    border: 1px solid #50aa50;
+    display: inline-block;
+}
+.pro_box .pl {
+    overflow: hidden;
+    color: #666;
+    position: relative;
+}
+.pro_box .pl h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 5px;
+}
+.pro_box.active .pl h3 {
+    color: #fff;
+}
+.pro_box .pl p {
+    line-height: 12px;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+.pro_box.active .pl::before {
+    content:'\e915';
+    font-family: 'wjs';
+    font-size: 33px;
+    color: #fff;
+    position: absolute;
+    top: -7px;
+    left: 0;
+}
+
+/*新闻板块*/
+.wjs_news {
+    padding: 120px 0;
+    border-bottom: 1px solid #ccc;
+}
+.wjs_news .wjs_news_title {
+    line-height: 50px;
+    height: 50px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.wjs_news .wjs_news_title h3 {
+    text-align: center;
+    font-size: 20px;
+
+}
+.wjs_news .wjs_news_title::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 1px solid #ccc;
+    position: absolute;
+    right: -6px;
+    bottom: -3px;
+}
+
+.wjs_news .nav-tabs {
+    border: none;
+}
+.wjs_news .col-md-1 {
+    position: relative;
+}
+.wjs_news .line {
+    height: 100%;
+    width: 1px;
+    border-left: 1px dashed #ccc;
+    position: absolute;
+    left: 45px;
+}
+.wjs_news .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+.wjs_news .nav-tabs > li > a {
+    line-height: 60px;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+    background-color: #ccc;
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 60px;
+}
+.wjs_news .nav-tabs > li:last-child > a {
+    margin-bottom: 0;
+}
+.wjs_news .nav-tabs > li > a:hover {
+    border-color: #eee #eee #ddd;
+}
+.wjs_news .nav-tabs > li.active > a,
+.wjs_news .nav-tabs > li.active > a:hover,
+.wjs_news .nav-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    background-color: #e92322;
+    border: none;
+    border-bottom-color: transparent;
+}
+    /*媒体查询 根据屏幕宽度改变新闻页签的间距*/
+@media (min-width:768px) and (max-width:992px) {
+    .wjs_news .nav-tabs > li > a {
+        margin-top: 20px;
+        margin-right: 140px;
+    }
+    .wjs_news .nav-tabs > li:last-child > a {
+        margin-right: 0;
+    }
+}
+@media (max-width:768px) {
+    .wjs_news .nav-tabs > li {
+        margin-top: 20px;
+        width: 25%;
+    }
+    .wjs_news .nav-tabs > li > a {
+        margin: 0 auto;
+    }
+}
+
+.wjs_news .nav-tabs.nav-justified {
+    width: 100%;
+    border-bottom: 0;
+}
+.wjs_news .nav-tabs.nav-justified > li {
+    float: none;
+}
+.wjs_news .nav-tabs.nav-justified > li > a {
+    margin-bottom: 5px;
+    text-align: center;
+}
+.wjs_news .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+}
+
+@media (min-width: 768px) {
+    .wjs_news .nav-tabs.nav-justified > li {
+        display: table-cell;
+        width: 1%;
+    }
+    .wjs_news .nav-tabs.nav-justified > li > a {
+        margin-bottom: 0;
+    }
+}
+.wjs_news .nav-tabs.nav-justified > li > a {
+    margin-right: 0;
+    border-radius: 4px;
+}
+.wjs_news .nav-tabs.nav-justified > .active > a,
+.wjs_news .nav-tabs.nav-justified > .active > a:hover,
+.wjs_news .nav-tabs.nav-justified > .active > a:focus {
+    border: 1px solid #ddd;
+}
+@media (min-width: 768px) {
+    .wjs_news .nav-tabs.nav-justified > li > a {
+        border-bottom: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+    }
+    .wjs_news .nav-tabs.nav-justified > .active > a,
+    .wjs_news .nav-tabs.nav-justified > .active > a:hover,
+    .wjs_news .nav-tabs.nav-justified > .active > a:focus {
+        border-bottom-color: #fff;
+    }
+}
+
+/*新闻板块-内容*/
+.wjs_news .wjs_news_content {
+    padding-left: 30px;
+}
+.wjs_news .wjs_news_content li {
+    list-style: none;
+}
+.wjs_news .wjs_news_content li a {
+    display: block;
+    margin: 30px 0;
+    color: #666;
+}
+
+/*合作伙伴*/
+.wjs_partner {
+    padding: 50px 0;
+    background-color: #2b2b2b;
+}
+.wjs_partner   ul {
+    /*text-align: center;*/
+    list-style: none;
+    padding: 0;
+}
+.wjs_partner .tips  ul li {
+    /*text-align: center;*/
+    list-style: none;
+    padding: 0;
+    border-bottom: 1px dashed #999;
+}
+.wjs_partner ul li a{
+    display: block;
+    height: 30px;
+    font-size: 14px;
+    padding-top: 10px;
+    color: #999;
+}
+
+.wjs_partner .contact .head{
+    display: block;
+    color: #e92322;
+    font-size: 30px;
+}
+.wjs_partner .contact .eng{
+    display: inline-block;
+    height: 40px;
+    color: #999999;
+    font-size: 14px;
+}
+.wjs_partner .contact .address{
+    display: block;
+    height: 96px;
+    font-size: 14px;
+    color: #999
+}
+.wjs_partner .tips{
+    font-size: 16px;
+    color: #ccc;
+}
+.wjs_partner .tips ul li a:hover{
+    color: #e92322;
+}
+.wjs_partner .navfooter{
+    /*width: 200px;
+    height: 190px;
+    margin: 0 auto;*/
+    position: relative;
+    left: 22%;
+}
+.wjs_partner .navfooter .active{
+    font-size: 16px;
+    color: #cccccc;
+}
+
+
+/*健身课目界面*/
+.classType{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.classType .container{
+    width: 1200px;
+    position: relative;
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .classType .container{
+        width: 900px;
+    }
+}
+.classType .container .box1{
+    height: 410px;
+}
+.classType .container .type1{
+    background: url("../images/class1.jpg") no-repeat;
+    width: 380px;
+    height: 380px;
+    font-size: 18px;
+    color: #333333;
+}
+.classType .container .type1 span,
+.classType .container .type2 span,
+.classType .container .type3 span,
+.classType .container .type4 span,
+.classType .container .type5 span,
+.classType .container .type6 span
+{
+    position: relative;
+    left: 35%;
+    top: 90%;
+}
+.classType .container .type2{
+    background: url("../images/class2.jpg") no-repeat;
+    position: relative;
+    left: 1.2%;
+    width: 380px;
+    height: 380px;
+    font-size: 18px;
+    color: #333333;
+}
+.classType .container .type3{
+    background: url("../images/class3.jpg") no-repeat;
+    width: 380px;
+    height: 380px;
+    font-size: 18px;
+    color: #333333;
+}
+.classType .container .type4{
+    background: url("../images/class4.jpg") no-repeat;
+    width: 380px;
+    height: 380px;
+    font-size: 18px;
+    color: #333333;
+}
+.classType .container .type5{
+    background: url("../images/class5.jpg") no-repeat;
+    position: relative;
+    left: 1.2%;
+    width: 380px;
+    height: 380px;
+    font-size: 18px;
+    color: #333333;
+}
+.classType .container .type6{
+    background: url("../images/class6.jpg") no-repeat;
+    width: 380px;
+    height: 380px;
+    font-size: 18px;
+    color: #333333;
+}
+
+
+/*健身课目界面全部课程组合*/
+.course_comb{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.course_comb .container{
+    width: 1200px;
+    position: relative;
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .course_comb .container{
+        width: 900px;
+    }
+}
+.course_comb .container .course1,
+.course_comb .container .course2,
+.course_comb .container .course3{
+    height: 350px;
+}
+
+.course_comb .container .course1_text,
+.course_comb .container .course2_text,
+.course_comb .container .course3_text{
+    padding-left: 50px;
+    max-width: 591px;
+}
+
+.course_comb .container .course1_text b,
+.course_comb .container .course2_text b,
+.course_comb .container .course3_text b{
+    font-size: 18px;
+}
+.course_comb .container .course1_text span,
+.course_comb .container .course2_text span,
+.course_comb .container .course3_text span{
+    font-size: 14px;
+    color: #666;
+    height: 120px;
+    line-height: 40px;
+}
+.course_comb .container .course1_text .cost1,
+.course_comb .container .course2_text .cost2,
+.course_comb .container .course3_text .cost3{
+    display: block;
+    width: 158px;
+    height: 61px;
+    background-color: #e92322;
+    line-height: 61px;
+    text-align: center;
+    border-radius: 5px;
+}
+.course_comb .container .course1_text .cost1 a,
+.course_comb .container .course2_text .cost2 a,
+.course_comb .container .course3_text .cost3 a{
+    color: #fff;
+    font-size: 16px;
+}
+
+/*具体课程*/
+.course_comb .container .course1_text .cost1 button,
+.course_comb .container .course2_text .cost2 button,
+.course_comb .container .course3_text .cost3 button{
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    background-color: #e92322;
+    height: 55px;
+    outline: none;    //消除默认点击蓝色边框效果
+
+}
+.course_comb .container .course1_text .appointment{
+    position: relative;
+    top: 10%;
+}
+.course_comb .container .course1_text .appointment button,
+.course_comb .container .course2_text .appointment button,
+.course_comb .container .course3_text .appointment button{
+    position: relative;
+    right: 10%;
+    top: 10%;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    width: 158px;
+    height: 61px;
+    background-color: #e92322;
+    line-height: 61px;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+}
