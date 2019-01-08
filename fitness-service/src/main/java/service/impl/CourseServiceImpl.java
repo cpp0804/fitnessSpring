@@ -1,0 +1,137 @@
+package service.impl;
+
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JsonConfig;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import common.exceptions.BizException;
+import common.log.ErrorLoggers;
+import common.log.LogUtil;
+import page.Page;
+import common.util.DateJsonValueProcessor;
+import common.util.HttpResponseConstants.Public;
+import pojo.RequestResultVO;
+import service.commonService.DataAuthorizeService;
+import service.commonService.util.ResultBuilder;
+import service.commonService.CommonService;
+import mapper.CourseMapper;
+import model.Course;
+import model.CourseExample;
+
+import pojo.vo.CourseVO;
+import service.CourseService;
+
+@Service
+public class CourseServiceImpl implements CourseService {
+
+    @Autowired
+    private CourseMapper courseMapper;
+
+    @Autowired
+    private DataAuthorizeService dataAuthorizeService;
+
+    private CommonService<Course, CourseMapper, CourseExample> commonService;
+
+    //注入commonService
+    @Resource(name = "commonService")
+    public void setCommonService(CommonService<Course, CourseMapper, CourseExample> commonService) {
+        this.commonService = commonService;
+    }
+
+    @Override
+    public RequestResultVO insert(Course course) {
+        if (course == null) {
+            throw new BizException(Public.ERROR_700);
+        }
+        dataAuthorizeService.addDataAuthorizeInfo(course, "insert");
+        courseMapper.insert(course);
+        return ResultBuilder.buildSuccessResult(Public.SUCCESS_200, "");
+    }
+
+    @Override
+    public RequestResultVO update(Course course) {
+        if (course == null || course.getCourseId() == null) {
+            throw new BizException(Public.ERROR_700);
+        }
+        dataAuthorizeService.addDataAuthorizeInfo(course, "update");
+        courseMapper.updateByPrimaryKeySelective(course);
+        return ResultBuilder.buildSuccessResult(Public.SUCCESS_300, "");
+    }
+
+    @Override
+    public RequestResultVO delete(List<Integer> courseIds) {
+        if (courseIds == null || courseIds.size() == 0) {
+            throw new BizException(Public.ERROR_700);
+        }
+        CourseExample courseExample = new CourseExample();
+        courseExample.createCriteria().andCourseIdIn(courseIds);
+        courseMapper.deleteByExample(courseExample);
+        return ResultBuilder.buildSuccessResult(Public.SUCCESS_400, "");
+    }
+
+    @Override
+    public Map<String, Object> getByPage(String keys, Integer pageSize,
+                                         Integer pageNow) {
+        CourseExample courseExample = new CourseExample();
+        this.setCriteria(keys, courseExample);
+        int totalrecords = (int) courseMapper.countByExample(courseExample);
+
+        Page page = new Page();
+        page.setBegin(pageNow);
+        page.setLength(pageSize);
+        courseExample.setOrderByClause("courseId desc");
+        courseExample.setPage(page);
+        List<Course> courses = courseMapper.selectByExample(courseExample);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        JsonConfig config = new JsonConfig();
+        config.setIgnoreDefaultExcludes(false);
+        config.registerJsonValueProcessor(Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
+        try {
+            map.put("aaData", JSONArray.fromObject(this.creatVos(courses), config));
+        } catch (Exception e) {
+            LogUtil.error(ErrorLoggers.ERROR_LOGGER, e.getMessage());
+            throw new BizException(Public.ERROR_100);
+        }
+        map.put("recordsTotal", totalrecords);
+        map.put("recordsFiltered", totalrecords);
+
+        return map;
+    }
+
+
+    private void setCriteria(String keys, CourseExample courseExample) {
+        if (keys == null || "{}".equals(keys))
+            return;
+        //JSONObject jKeys = JSONObject.fromObject(keys);
+        //Criteria criteria = courseExample.createCriteria();
+
+    }
+
+    private List<CourseVO> creatVos(List<Course> courses) throws Exception {
+        List<CourseVO> courseVOs = new ArrayList<CourseVO>();
+        for (Course course : courses) {
+            CourseVO courseVO = new CourseVO();
+            BeanUtils.copyProperties(course, courseVO);
+            commonService.addBaseModel(course, courseVO);
+            courseVOs.add(courseVO);
+        }
+        return courseVOs;
+    }
+}
+
+
+
+
