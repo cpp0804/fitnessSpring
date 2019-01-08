@@ -16,6 +16,11 @@ public interface CourseService {
 
     public Map<String, Object> getByPage(String keys, Integer pageSize, Integer pageNow);
 
+    public Map<String, Object> getByPageSimple();
+
+    public RequestResultVO buyCourse(Integer courseId, Integer courseNum);
+
+    public String payCourse(Integer courseId, Long price);
 }
 
 

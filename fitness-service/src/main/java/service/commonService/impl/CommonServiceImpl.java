@@ -553,8 +553,8 @@ public class CommonServiceImpl implements CommonService<Object, Object, Object> 
         if (ReflectionUtil.invokeMethod(businessModel, "getCreator") == null)
             params = new Object[]{"空"};
         else
-            params = new Object[]{SysConst.EMPLOYEE_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getCreator")) == null ? "空" :
-                    SysConst.EMPLOYEE_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getCreator"))};
+            params = new Object[]{SysConst.USER_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getCreator")) == null ? "空" :
+                    SysConst.USER_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getCreator"))};
 
 
         ReflectionUtil
@@ -563,8 +563,8 @@ public class CommonServiceImpl implements CommonService<Object, Object, Object> 
         if (ReflectionUtil.invokeMethod(businessModel, "getAmender") == null)
             params = new Object[]{"空"};
         else
-            params = new Object[]{SysConst.EMPLOYEE_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getAmender")) == null ? "空" :
-                    SysConst.EMPLOYEE_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getAmender"))};
+            params = new Object[]{SysConst.USER_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getAmender")) == null ? "空" :
+                    SysConst.USER_MAP.get((Integer) ReflectionUtil.invokeMethod(businessModel, "getAmender"))};
 
         ReflectionUtil
                 .invokeMethod(baseModel, "setAmenderName", params);

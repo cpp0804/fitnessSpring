@@ -50,6 +50,10 @@ public interface HttpResponseConstants {
 		public static final String ERROR_800 = "未知异常";
 		/**账号或密码错误**/
 		public static final String ERROR_900 = "账号或密码错误";
+
+		public static final String BUY_COURSE_SUCCESS="购买成功";
+		public static final String RESERVE_COURSE_SUCCESS="预约成功";
+		public static final String BUY_COURSE_EXISTING="您已有该课程正在进行中";
 	}
 	
 }

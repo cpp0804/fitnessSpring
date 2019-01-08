@@ -98,6 +98,6 @@ public class LoginController {
 
     @RequestMapping(value="/l.do")
     public String login(HttpServletRequest request){
-        return "login2";
+        return "login3";
     }
 }

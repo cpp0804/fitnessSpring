@@ -18,69 +18,87 @@ import pojo.RequestResultVO;
 import common.util.HttpResponseConstants.Public;
 
 @Controller
-@RequestMapping(value="/userCourse")
+@RequestMapping(value = "/userCourse")
 public class UserCourseController {
 
-	@Autowired
-	private UserCourseService userCourseService;
-	/**
-	 * 新增
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/insert.do")
-	public @ResponseBody RequestResultVO insert(HttpServletRequest request){
-		String userCourseString = request.getParameter("userCourse");
-UserCourse userCourse = null;
-		try{
-userCourse = JsonFastUtil.parseObject(userCourseString, UserCourse.class);
-		}catch(Exception e){
-			throw new BizException(Public.ERROR_700);
-		}
-		return userCourseService.insert(userCourse);
-	}
-	/**
-	 * 修改
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/update.do")
-	public @ResponseBody RequestResultVO update(HttpServletRequest request){
-		String userCourseString = request.getParameter("userCourse");
-UserCourse userCourse = null;
-		try{
-userCourse = JsonFastUtil.parseObject(userCourseString, UserCourse.class);
-		}catch(Exception e){
-			throw new BizException(Public.ERROR_700);
-		}
-		return userCourseService.update(userCourse);
-	}
-	/**
-	 * 删除
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/delete.do")
-	public @ResponseBody RequestResultVO delete(HttpServletRequest request){
-		String userCourseIdsString = request.getParameter("userCourseIds");
-		List<Integer> userCourseIds;
-    try{
-userCourseIds = CommonUtils.idsArrayToList(userCourseIdsString);
-    }catch(Exception e){
-    throw new BizException(Public.ERROR_700);
-    }
-    return userCourseService.delete(userCourseIds);
-    }
+    @Autowired
+    private UserCourseService userCourseService;
+
     /**
-    * 分页查询
-    * @param request
-    * @return
-    */
-    @RequestMapping(value="/getByPage.do")
-    public @ResponseBody Object getByPage(HttpServletRequest request){
-    String keys = request.getParameter("keys");
-    Integer length = Integer.parseInt(request.getParameter("length"));
-    Integer start = Integer.parseInt(request.getParameter("start"));
-    return userCourseService.getByPage(keys, length, start);
+     * 新增
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/insert.do")
+    public @ResponseBody
+    RequestResultVO insert(HttpServletRequest request) {
+        String userCourseString = request.getParameter("userCourse");
+        UserCourse userCourse = null;
+        try {
+            userCourse = JsonFastUtil.parseObject(userCourseString, UserCourse.class);
+        } catch (Exception e) {
+            throw new BizException(Public.ERROR_700);
+        }
+        return userCourseService.insert(userCourse);
     }
+
+    /**
+     * 修改
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/update.do")
+    public @ResponseBody
+    RequestResultVO update(HttpServletRequest request) {
+        String userCourseString = request.getParameter("userCourse");
+        UserCourse userCourse = null;
+        try {
+            userCourse = JsonFastUtil.parseObject(userCourseString, UserCourse.class);
+        } catch (Exception e) {
+            throw new BizException(Public.ERROR_700);
+        }
+        return userCourseService.update(userCourse);
     }
+
+    /**
+     * 删除
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/delete.do")
+    public @ResponseBody
+    RequestResultVO delete(HttpServletRequest request) {
+        String userCourseIdsString = request.getParameter("userCourseIds");
+        List<Integer> userCourseIds;
+        try {
+            userCourseIds = CommonUtils.idsArrayToList(userCourseIdsString);
+        } catch (Exception e) {
+            throw new BizException(Public.ERROR_700);
+        }
+        return userCourseService.delete(userCourseIds);
+    }
+
+    /**
+     * 分页查询
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/getByPage.do")
+    public @ResponseBody
+    Object getByPage(HttpServletRequest request) {
+        String keys = request.getParameter("keys");
+        Integer length = Integer.parseInt(request.getParameter("length"));
+        Integer start = Integer.parseInt(request.getParameter("start"));
+        return userCourseService.getByPage(keys, length, start);
+    }
+
+    @RequestMapping(value = "/getByPageUser.do")
+    public @ResponseBody
+    Object getByPageUser(HttpServletRequest request) {
+        return userCourseService.getByPageUser();
+    }
+}

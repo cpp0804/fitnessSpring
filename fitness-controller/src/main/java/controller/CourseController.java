@@ -95,4 +95,20 @@ public class CourseController {
         Integer start = Integer.parseInt(request.getParameter("start"));
         return courseService.getByPage(keys, length, start);
     }
+
+    @RequestMapping(value = "/getByPageSimple.do")
+    public @ResponseBody
+    Object getByPageSimple(HttpServletRequest request) {
+        return courseService.getByPageSimple();
+    }
+
+    @RequestMapping(value = "/buyCourse.do")
+    public @ResponseBody
+    Object buyCourse(HttpServletRequest request) {
+        Integer courseId = Integer.parseInt(request.getParameter("courseId"));
+        Integer courseNum = Integer.parseInt(request.getParameter("courseNum"));
+        return courseService.buyCourse(courseId, courseNum);
+    }
+
+
 }

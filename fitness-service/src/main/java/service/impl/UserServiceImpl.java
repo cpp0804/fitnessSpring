@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
@@ -32,9 +33,13 @@ import model.UserExample;
 
 import pojo.vo.UserVO;
 import service.UserService;
+import service.commonService.util.SysConst;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private HttpSession session;
 
     @Autowired
     private UserMapper userMapper;
@@ -114,6 +119,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public User getSessionUser() {
+        Integer userId = (Integer) session.getAttribute("userId");
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public void init_USERMAP() {
+        SysConst.USER_MAP = new HashMap<Integer, String>();
+        List<User> users = userMapper.selectByExample(null);
+        for (User user : users) {
+            SysConst.USER_MAP.put(user.getUserId(), user.getName());
+        }
     }
 
     private void setCriteria(String keys, UserExample userExample) {

@@ -92,7 +92,7 @@ public class LoginServiceImpl implements LoginService {
         Page page = new Page();
         page.setBegin(pageNow);
         page.setLength(pageSize);
-        loginExample.setOrderByClause("loginId desc");
+        loginExample.setOrderByClause("login_id desc");
         loginExample.setPage(page);
         List<Login> logins = loginMapper.selectByExample(loginExample);
 
