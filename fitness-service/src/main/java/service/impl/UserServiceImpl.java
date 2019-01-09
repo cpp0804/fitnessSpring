@@ -1,15 +1,14 @@
 package service.impl;
 
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import mapper.CourseInstanceMapper;
+import mapper.ReserveMapper;
+import model.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
 
@@ -28,8 +27,6 @@ import service.commonService.DataAuthorizeService;
 import service.commonService.util.ResultBuilder;
 import service.commonService.CommonService;
 import mapper.UserMapper;
-import model.User;
-import model.UserExample;
 
 import pojo.vo.UserVO;
 import service.UserService;
@@ -47,7 +44,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private DataAuthorizeService dataAuthorizeService;
 
+    @Autowired
+    private ReserveMapper reserveMapper;
+
     private CommonService<User, UserMapper, UserExample> commonService;
+
+    @Autowired
+    private CourseInstanceMapper courseInstanceMapper;
 
     //注入commonService
     @Resource(name = "commonService")
@@ -134,6 +137,30 @@ public class UserServiceImpl implements UserService {
         for (User user : users) {
             SysConst.USER_MAP.put(user.getUserId(), user.getName());
         }
+    }
+
+    @Override
+    public Map<String, Object> getStudentList(Integer courseInstanceId) {
+        ReserveExample reserveExample = new ReserveExample();
+        ReserveExample.Criteria criteria = reserveExample.createCriteria();
+        criteria.andCourseInstanceIdEqualTo(courseInstanceId);
+        List<Reserve> reserves = reserveMapper.selectByExample(reserveExample);
+        List<User>users=new ArrayList<>();
+        for(Iterator iterator = reserves.iterator(); iterator.hasNext();){
+//            CourseInstance courseInstance=courseInstanceMapper.selectByPrimaryKey(((Reserve)iterator.next()).getCourseInstanceId());
+            users.add(userMapper.selectByPrimaryKey(((Reserve)iterator.next()).getUserId()));
+        }
+        Map<String, Object> map = new HashMap<String, Object>();
+        JsonConfig config = new JsonConfig();
+        config.setIgnoreDefaultExcludes(false);
+        config.registerJsonValueProcessor(Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
+        try {
+            map.put("aaData", JSONArray.fromObject(this.creatVos(users), config));
+        } catch (Exception e) {
+            LogUtil.error(ErrorLoggers.ERROR_LOGGER, e.getMessage());
+            throw new BizException(Public.ERROR_100);
+        }
+        return map;
     }
 
     private void setCriteria(String keys, UserExample userExample) {

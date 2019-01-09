@@ -2,19 +2,14 @@ package service.impl;
 
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.Resource;
 
 import mapper.CourseInstanceMapper;
 import mapper.CourseMapper;
 import mapper.UserMapper;
-import model.CourseInstance;
-import model.UserCourse;
+import model.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
 
@@ -35,8 +30,6 @@ import service.commonService.DataAuthorizeService;
 import service.commonService.util.ResultBuilder;
 import service.commonService.CommonService;
 import mapper.ReserveMapper;
-import model.Reserve;
-import model.ReserveExample;
 
 import pojo.vo.ReserveVO;
 import service.ReserveService;
@@ -175,6 +168,7 @@ public class ReserveServiceImpl implements ReserveService {
         }
         return map;
     }
+
 
     private void setCriteria(String keys, ReserveExample reserveExample) {
         if (keys == null || "{}".equals(keys))

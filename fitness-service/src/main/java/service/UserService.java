@@ -21,6 +21,8 @@ public interface UserService {
     public User getSessionUser();
 
     public void init_USERMAP();
+
+    public Map<String,Object> getStudentList(Integer reserveId);
 }
 
 
