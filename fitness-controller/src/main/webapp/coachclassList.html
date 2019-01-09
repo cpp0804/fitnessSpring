@@ -5,10 +5,11 @@
     <title>课程列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="fitness/lib/bootstrap/css/bootstrap.min.css">
-    <link href="fitness/fitness/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/global.css">
-    <link rel="stylesheet" href="fitness/css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <style type="text/css">
         .fl{
             float: left;
@@ -113,8 +114,10 @@
             float: right;
         }*/
     </style>
-    <script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -129,20 +132,13 @@
             <ol class="breadcrumb" style="margin-top:10px;padding-left:0px;">
                 <li><span class="glyphicon glyphicon-map-marker"></span>当前位置：课程列表</li>
             </ol>
-            <div class="course_list"  >
-                <table class="table table-hover table-bordered table-condensed">
+            <div >
+                <table class="table table-hover table-bordered table-condensed" id="course_list" >
                     <thead>
                     <tr>
-                        <th>课程名称</th>
-                        <th id="name"></th>
-                    </tr>
-                    <tr>
-                        <th>课程节数</th>
-                        <th id="num"></th>
-                    </tr>
-                    <tr>
+                        <!--<th>课程名称</th>-->
                         <th>学员</th>
-                        <th id="student"></th>
+                        <th>电话</th>
                     </tr>
                     </thead>
                 </table>
@@ -151,6 +147,6 @@
     </div><!-- row-end -->
 </div><!-- container-end -->
 </body>
-<script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="fitness/js/coachclassList.js"></script>
+<!--<script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>-->
+<script type="text/javascript" src="js/coachclassList.js"></script>
 </html>
