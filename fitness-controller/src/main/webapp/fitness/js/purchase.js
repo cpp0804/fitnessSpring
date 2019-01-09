@@ -1,30 +1,44 @@
 $(document).ready(function () {
     $.ajax({
         type: "GET",//请求方式
-        url: "json/purchaseInfo.json",//地址，就是json文件的请求路径
+        url: "/course/getByPageSimple.do",//地址，就是json文件的请求路径
         dataType: "json",//数据类型可以为 text xml json  script  jsonp
         beforeSend: ()=>{console.log("开始")}, //加载执行方法
         error: (error)=>{console.log("错误",error)},  //错误执行方法
         success: function (xhr) {
             debugger;
             console.log(xhr);
-            console.log(xhr.title);
             // addcourse_comb(xhr);
             var title = document.querySelector("#coursetitle");
             title.innerHTML = xhr.title;
             $("#pay").click(function () {
                 debugger;
-                var unitprice = xhr.cost;
+                var unitprice = xhr.classPerPrice;
                 console.log(unitprice);
-                var coursenum = $("select[name='classSession']").find("option:selected").text();
-                var price = parseInt(unitprice);
-                var num = parseInt(coursenum);
-                console.log(price);
-                console.log(num);
-                var total = price*num;
+                var num = $("select[name='classSession']").find("option:selected").text();
+                // var price = parseInt(unitprice);
+                var courseNum = parseInt(num);
+                // console.log(price);
+                // console.log(courseNum);
+                var total = unitprice*courseNum;
                 console.log(total);
                 var paytotal = document.querySelector("#total");
                 paytotal.innerHTML = "￥"+total;
+                var id = xhr.courseId;
+                $.ajax({
+                    type: "post",//请求方式
+                    url: "/course/buyCourse.do",//地址，就是json文件的请求路径
+                    data:{
+                      courseId: id  ,
+                        courseNum:courseNum
+                    },
+                    dataType: "json",//数据类型可以为 text xml json  script  jsonp
+                    beforeSend: ()=>{console.log("开始")}, //加载执行方法
+                    error: (error)=>{console.log("错误",error)},  //错误执行方法
+                    success: function (info){
+                        alert(info.message);
+                    }
+                })
             });
 
         }
