@@ -1,4 +1,6 @@
+
 $(function(){
+    console.log("index")
     //获取渲染轮播图数据
     render();
     //移动端滑动产品页签
@@ -29,6 +31,7 @@ var getData = function (callback){
 
 var render = function (){
     getData(function (data){
+        console.log(data);
         //获取页面宽度，判断使用哪种图片
         var isMoblie = $(window).width() < 768 ? true : false;
         // 获取模板引擎渲染数据

@@ -345,7 +345,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     display: inline-block;
     width: 184px;
     height: 40px;
-    background: url("../images/bg.jpg") no-repeat;
+    background: url("../../images/bg.jpg") no-repeat;
     text-align: center;
     font-size: 16px;
     line-height: 40px;
@@ -355,7 +355,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     display: inline-block;
     width: 184px;
     height: 40px;
-    background: url("../images/bg.jpg") no-repeat;
+    background: url("../../images/bg.jpg") no-repeat;
     text-align: center;
     font-size: 16px;
     line-height: 40px;
@@ -410,7 +410,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     display: inline-block;
     width: 184px;
     height: 40px;
-    background: url("../images/bg.jpg") no-repeat;
+    background: url("../../images/bg.jpg") no-repeat;
     text-align: center;
     font-size: 16px;
     line-height: 40px;
@@ -420,7 +420,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     display: inline-block;
     width: 184px;
     height: 40px;
-    background: url("../images/bg.jpg") no-repeat;
+    background: url("../../images/bg.jpg") no-repeat;
     text-align: center;
     font-size: 16px;
     line-height: 40px;
@@ -916,7 +916,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     height: 410px;
 }
 .classType .container .type1{
-    background: url("../images/class1.jpg") no-repeat;
+    background: url("../../images/class1.jpg") no-repeat;
     width: 380px;
     height: 380px;
     font-size: 18px;
@@ -934,7 +934,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     top: 90%;
 }
 .classType .container .type2{
-    background: url("../images/class2.jpg") no-repeat;
+    background: url("../../images/class2.jpg") no-repeat;
     position: relative;
     left: 1.2%;
     width: 380px;
@@ -943,21 +943,21 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     color: #333333;
 }
 .classType .container .type3{
-    background: url("../images/class3.jpg") no-repeat;
+    background: url("../../images/class3.jpg") no-repeat;
     width: 380px;
     height: 380px;
     font-size: 18px;
     color: #333333;
 }
 .classType .container .type4{
-    background: url("../images/class4.jpg") no-repeat;
+    background: url("../../images/class4.jpg") no-repeat;
     width: 380px;
     height: 380px;
     font-size: 18px;
     color: #333333;
 }
 .classType .container .type5{
-    background: url("../images/class5.jpg") no-repeat;
+    background: url("../../images/class5.jpg") no-repeat;
     position: relative;
     left: 1.2%;
     width: 380px;
@@ -966,7 +966,7 @@ fieldset[disabled] .wjs_nav .btn-link:focus {
     color: #333333;
 }
 .classType .container .type6{
-    background: url("../images/class6.jpg") no-repeat;
+    background: url("../../images/class6.jpg") no-repeat;
     width: 380px;
     height: 380px;
     font-size: 18px;
