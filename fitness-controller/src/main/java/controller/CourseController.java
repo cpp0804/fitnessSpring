@@ -104,7 +104,7 @@ public class CourseController {
 
     @RequestMapping(value = "/buyCourse.do")
     public @ResponseBody
-    Object buyCourse(HttpServletRequest request) {
+    RequestResultVO buyCourse(HttpServletRequest request) {
         Integer courseId = Integer.parseInt(request.getParameter("courseId"));
         Integer courseNum = Integer.parseInt(request.getParameter("courseNum"));
         return courseService.buyCourse(courseId, courseNum);

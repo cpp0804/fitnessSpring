@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="fitness/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fitness/css/font-awesome.css">
+
+    <!--[if lt IE 9]>
+    <script src="fitness/lib/html5shiv/html5shiv.min.js"></script>
+    <script src="fitness/lib/respond.js/respond.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <![end if]-->
+    <link rel="stylesheet" href="fitness/css/index.css">
+    <title>健身俱乐部</title>
+</head>
+<body>
+    <!--导航-->
+    <nav class="navbar wjs_nav" data-spy="affix" data-offset-top="41">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#wjs_nav_collapse" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <span class="title">健身</span>
+                    <span class="title2">俱乐部</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="wjs_nav_collapse">
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li class="active"><a href="fitness/index.html">首页</a></li>
+                    <li class="dropdown">
+                        <a href="fitness/courseQuery.html" class="dropdown-toggle" data-toggle="dropdown">健身课目<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="fitness/courseQuery.html">健身课目</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="fitness/courseCombination.html">课程组合</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="fitness/yogaClass.html">瑜伽课程系列</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">运动康复课程</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">各类课程简介</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">私教课程系列</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">国家职业资格认证课程</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="fitness/enroll.html">注册</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#login">登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--轮播图-->
+    <section id="wjs_banner" class="wjs_banner carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox"></div>
+        <a href="#wjs_banner" class="left carousel-control" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a href="#wjs_banner" class="right carousel-control" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </section>
+
+
+    <!--健身模块1-->
+    <section class="fit">
+        <div class="container">
+            <img src="fitness/images/mokuai1.jpg" height="776" width="1200"/>
+            <div class="fit-editor">
+                <div class="title"><b>EMS健身</b></div>
+                <div class="title1"><b>ELECTRONIC MUSCLE STIMULATOR</b></div>
+                <div class="title2"><span>传统的体育训练方式中，肌肉的收缩和动作，是由中枢神经系统通过生物电信号传递指令来控制肌肉完成的。
+EMS则是模拟这种人体的大脑信号，将运动信号直接传递给肌肉，使其引来肌肉的强烈收缩。
+无论是中枢神经系统的刺激，还是外部EMS设备发出的刺激，对肌肉来说是没有区别的...</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!--课程模块1-->
+    <section class="course">
+        <div class="container">
+            <div class="course_title fl"><h3>减脂/塑性/增肌</h3></div>
+            <div class="course_name fl">专业科学的训练计划</div>
+            <div class="course_des fl">专业的教练为您定制专业的课程和营养健康搭配饮食，轻松减肥、瘦身、塑形
+                带您体验丰富多彩的运动社区活动</div>
+            <div class="course_enter">
+                <div class="course_enter1">
+                    <a href="#">马甲线养成计划</a>
+                </div>
+                <div class="course_enter2">
+                    <a href="#">人鱼线雕刻健身训练</a>
+                </div>
+            </div>
+            <div class="images fr">
+                    <img src="fitness/images/course1.jpg" height="200" width="280" class="course1"/>
+                    <img src="fitness/images/course2.jpg" height="280" width="280" class="course2"/>
+                    <img src="fitness/images/course3.jpg" height="280" width="280" class="course3"/>
+                    <img src="fitness/images/course4.jpg" height="200" width="280" class="course4"/>
+            </div>
+        </div>
+    </section>
+    
+    <!--计划部分-->
+    <section class="plan">
+        <div class="container">
+            <div class="plan_title fr"><h3>轻松/高效/省时</h3></div>
+            <div class="plan_name fr">开启专属健身计划</div>
+            <div class="plan_des fr">根据不同的健身目的，根据您的需求，定制适合您的计划 专业教练全程教学，同步训练</div>
+            <div class="plan_enter">
+                <div class="plan_enter1"><a href="">康复训练</a></div>
+                <div class="plan_enter2"><a href="">办公室塑性计划</a></div>
+            </div>
+            <div class="images fl">
+                <img src="fitness/images/plan3.jpg" height="280" width="280"/>
+                <img src="fitness/images/plan1.jpg" height="200" width="280"/>
+                <img src="fitness/images/plan4.jpg" height="200" width="280"/>
+                <img src="fitness/images/plan2.jpg" height="280" width="280"/>
+            </div>
+        </div>
+    </section>
+    <!--新闻板块-->
+    <!--<i class="fa fa-desktop"></i>-->
+    <section class="wjs_news">
+        <div class="container">
+            <div class="wjs_news_title col-md-2 col-md-offset-2 col-sm-12"><h3>健身知识</h3></div>
+            <div class="col-md-1">
+                <div class="line hidden-xs hidden-sm"></div>
+                <ul class="nav nav-tabs">
+                    <li class=" active"><a href="#new1" data-toggle="tab"><i class="fa fa-globe"></i></a></li>
+                    <li class=" "><a href="#new2" data-toggle="tab"><i class="fa fa-newspaper-o"></i></a></li>
+                    <li class=" "><a href="#new3" data-toggle="tab"><i class="fa fa-microphone"></i></a></li>
+                    <li class=" "><a href="#new4" data-toggle="tab"><i class="fa fa-desktop"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-7 tab-content">
+                    <div class="tab-pane active" id="new1">
+                        <ul class="wjs_news_content">
+                            <li><a href="#">生育性肥胖影响美观和健康，该如何预防?</a></li>
+                            <li><a href="#">体重基数越小就越不容易瘦下来吗？</a></li>
+                            <li><a href="#">运动后恢复对减重有多重要？</a></li>
+                            <li><a href="#">长期高强度间歇运动真的好吗？</a></li>
+                            <li><a href="#">个人负荷举重应该控制在多少为好？</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="new2">
+                        <ul class="wjs_news_content">
+                            <li><a href="#">运动饮料喝太多的负面影响超乎你的想象</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="new3">
+                        <ul class="wjs_news_content">
+                            <li><a href="#">运动进行必要的“加热”和“冷却”</a></li>
+                            <li><a href="#">正确的估计自己的锻炼能力</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="new4">
+                        <ul class="wjs_news_content">
+                            <li><a href="#">女性进行力量训练会长肌肉吗？力量训练可以天天做吗？</a></li>
+                            <li><a href="#">跑步会粗小腿吗？</a></li>
+                            <li><a href="#">做瑜伽或者普拉提能减脂吗？</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!--合作板块-->
+    <section class="wjs_partner">
+        <div class="container">
+            <div class="contact fl">
+                <span class="head">健身俱乐部</span>
+                <span class="eng">QUALITY LIFE WITH EFFICIENCY</span>
+                <span class="address">地址：XXX省XX市XXX县XXX路XXX号<br>
+                                      邮箱：contact@fkadjkhsf.co<br>
+                                      电话：000-000-0000
+                </span>
+            </div>
+            <div class="navfooter fl">
+                <ul>
+                    <li><a href="fitness/fitness/index.html" class="active">网站首页</a></li>
+                    <li><a href="fitness/courseQuery.html">健身课目</a></li>
+                </ul>
+            </div>
+            <div class="tips fr">健身知识
+                <ul>
+                    <li><a href="#">生育性肥胖影响美观和健康，该如何预防?</a></li>
+                    <li><a href="#">体重基数越小就越不容易瘦下来吗？</a></li>
+                    <li><a href="#">运动后恢复对减重有多重要？</a></li>
+                    <li><a href="#">跑步会粗小腿吗？</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade in" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog"  role="document" >
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: black;">用户登录</h4>
+                </div>
+                <div class="modal-body form-horizontal col-md-12">
+                    <form action="post" class="enroll_form" role="form">
+                        <div class="form_group">
+                            <label for="form_username">用户名</label>
+                            <input type="text" name="userName" class="form-control" placeholder="请输入用户名:">
+                        </div>
+                        <div class="form_group">
+                            <label for="form_password">密码</label>
+                            <input type="password" name="userPsd" class="form-control" placeholder="请输入密码:">
+                        </div>
+                    </form>
+                    <!--<form action="post" class="enroll_form" role="form">
+                        <div class="form_group">
+                            <label for="form_username">用户名</label>
+                            <input type="text" name="form_username" class="form-control" placeholder="请输入用户名:">
+                        </div>
+                        <div class="form_group">
+                            <label for="form_password">密&nbsp&nbsp&nbsp码</label>
+                            <input type="password" name="form_password" class="form-control" placeholder="请输入密码:">
+                        </div>
+                    </form>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success" id="enroll">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/template" id="carousel-point">
+    <% for(var i=0;i<list.length;i++){ %>
+        <li data-target="#wjs_banner" data-slide-to="<%=i%>" class="<%=i==0?'active':''%>"></li>
+    <%}%>
+</script>
+<script type="text/template" id="carousel-inner">
+        <% if(isM){ %>
+            <%for(var i=0; i<list.length; i++) {%>
+             <div class="item <%=i==0?'active':''%>">
+                <a href="#" class="mobile-image-item"><img src="<%=list[i].mSrc%>" alt=""></a>
+             </div>
+            <%}%>
+        <% }else{ %>
+            <%for(var i=0; i<list.length; i++) {%>
+                <div class="item <%=i==0?'active':''%>">
+                    <a href="#" class="default-image-item" style="background-image: url(<%=list[i].pcSrc%>)"></a>
+                </div>
+            <%}%>
+        <% } %>
+</script>
+
+<script src="fitness/lib/jquery/jquery-1.12.4.js"></script>
+<script src="fitness/lib/iscroll/iscroll.js"></script>
+<script src="fitness/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="fitness/lib/artTemplate/template-native.js"></script>
+<script src="fitness/js/index.js"></script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.min.js"></script>
+    <script src="lib/respond.js/respond.min.js"></script>
+    <![end if]-->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/enroll.css">
+    <title>健身俱乐部</title>
+    <style>
+        #login {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="enroll">
+    <div class="container">
+        <div class="row_text">
+            <h1>A健身房课程预约系统</h1>
+        </div>
+        <div class="row_enroll">
+            <div class="col-sm-6 col-sm-offset-3 form_box">
+                <div class="form_top">
+                    <div class="form_top_left">
+                        <h3>登录</h3>
+                    </div>
+                    <div class="form_top_right">
+                        <i class="fa fa-key"></i>
+                    </div>
+                </div>
+                <div class="form_bottom">
+                    <form class="enroll_form">
+                        <div class="form_group">
+                            <label for="form_username">用户名</label>
+                            <input id="form_username" type="text" name="username" class="form-control"
+                                   placeholder="请输入用户名:">
+                        </div>
+                        <div class="form_group">
+                            <label for="form_password">密&nbsp&nbsp&nbsp码</label>
+                            <input id="form_password" type="password" name="password" class="form-control"
+                                   placeholder="请输入密码:">
+                        </div>
+                        <button type="button" class="btn btn-success " id="login">登录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script src="lib/jquery/jquery-1.12.4.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/artTemplate/template-native.js"></script>
+<script src="js/login.js"></script>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="fitness/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fitness/css/index.css">
+    <script src="fitness/lib/html5shiv/html5shiv.min.js"></script>
+    <script src="fitness/lib/respond.js/respond.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="fitness/lib/artTemplate/template-native.js"></script>
+    <![end if]-->
+    <title>健身俱乐部</title>
+    <style type="text/css">
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .course_comb{
+            width: 100%;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .course_comb .container{
+            width: 1200px;
+            position: relative;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){
+            .course_comb .container{
+                width: 900px;
+            }
+        }
+       /* .course_comb{
+            height: 1100px;
+        }
+*/
+        .course_comb .container .image{
+            width: 480px;
+            height: 314px;
+            float: left;
+            padding-bottom: 20px;
+
+        }
+        .course_comb .container .course_text{
+            height: 314px;
+            padding-left: 50px;
+            max-width: 591px;
+            padding-bottom: 20px;
+        }
+
+        .course_comb .container .course_text b{
+            font-size: 18px;
+        }
+        .course_comb .container .course_text span{
+            font-size: 14px;
+            color: #666;
+            height: 120px;
+            line-height: 40px;
+        }
+        .course_comb .container .course_text .cost{
+            position: relative;
+            top: 10%;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .course_comb .container .course_text .cost a{
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /*具体课程*/
+        .course_comb .container .course_text .cost button{
+            color: #fff;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid transparent;
+            background-color: #e92322;
+            height: 55px;
+            outline: none;    //消除默认点击蓝色边框效果
+
+        }
+        .course_comb .container .course_text .appointment{
+            position: relative;
+            top: 10%;
+        }
+        .course_comb .container .course_text .appointment a{
+            position: relative;
+            right: 10%;
+            top: 10%;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0;
+        }
+        /*.image{
+            width: 480px;
+            height: 314px;
+            float: left;
+        }
+        .course_text{
+            float: right;
+        }*/
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar wjs_nav" data-spy="affix" data-offset-top="41">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#wjs_nav_collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">
+                <span class="title">健身</span>
+                <span class="title2">俱乐部</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="wjs_nav_collapse">
+            <ul class="nav navbar-nav navbar-right hidden-sm">
+                <li><a href="fitness/index.html">首页</a></li>
+                <li class="dropdown">
+                    <a href="fitness/courseQuery.html" class="dropdown-toggle" data-toggle="dropdown">健身课目<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="fitness/courseQuery.html">健身课目</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="fitness/courseCombination.html">课程组合</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="fitness/yogaClass.html">瑜伽课程系列</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">运动康复课程</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">各类课程简介</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">私教课程系列</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">国家职业资格认证课程</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--背景图-->
+<section class="background">
+    <img src="fitness/images/classOrder.jpg" height="500" width="1920"/>
+</section>
+
+<!--全部课程组合-->
+<section class="course_comb">
+    <div class="container"  id="course_comb">
+        <!--<div class="course1">
+            <img id="combCourse1" height="314" width="480" class="fl"/>
+            <div class="course1_text fr">
+                <b id="course1_title"></b><br>
+                <span id="course1_desc"></span>
+                <div class="cost1 fr" id="course1_cost"><a href=""></a></div>
+                <div class="appointment fr"><button data-toggle="modal" data-target="#modifyclassModal">预约</button></div>
+            </div>
+        </div>
+        <div class="course2">
+            <img id="combCourse2" height="314" width="480" class="fl"/>
+            <div class="course2_text fr">
+                <b id="course2_title"></b><br>
+                <span id="course2_desc"></span>
+                <div class="cost2 fr" id="course2_cost"><a href=""></a></div>
+                <div class="appointment fr"><button data-toggle="modal" data-target="#modifyclassModal">预约</button></div>
+
+            </div>
+        </div>
+        <div class="course3">
+            <img id="combCourse3" height="314" width="480" class="fl"/>
+            <div class="course3_text fr">
+                <b id="course3_title"></b><br>
+                <span id="course3_desc"></span>
+                <div class="cost3 fr" id="course3_cost"><a href=""></a></div>
+                <div class="appointment fr"><button data-toggle="modal" data-target="#modifyclassModal">预约</button></div>
+            </div>
+        </div>-->
+    </div>
+</section>
+
+<!--底部导航-->
+<section class="wjs_partner">
+    <div class="container">
+        <div class="contact fl">
+            <span class="head">健身俱乐部</span>
+            <span class="eng">QUALITY LIFE WITH EFFICIENCY</span>
+            <span class="address">地址：XXX省XX市XXX县XXX路XXX号<br>
+                                      邮箱：contact@fkadjkhsf.co<br>
+                                      电话：000-000-0000
+                </span>
+        </div>
+        <div class="navfooter fl">
+            <ul>
+                <li><a href="" class="active">网站首页</a></li>
+                <li><a href="">课程预约</a></li>
+                <li><a href="">课表查询</a></li>
+            </ul>
+        </div>
+        <div class="tips fr">健身知识
+            <ul>
+                <li><a href="#">生育性肥胖影响美观和健康，该如何预防?</a></li>
+                <li><a href="#">体重基数越小就越不容易瘦下来吗？</a></li>
+                <li><a href="#">运动后恢复对减重有多重要？</a></li>
+                <li><a href="#">跑步会粗小腿吗？</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!--<button class="btn btn-primary" data-toggle="modal" data-target="#modifyModal">测试</button>-->
+<div class="modal fade in" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog"  role="document" >
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="color: black;">预约课程</h4>
+            </div>
+            <div class="modal-body form-horizontal col-md-12">
+                <form action="post" class="enroll_form" role="form">
+                    <div class="form_group">
+                        <label for="form_username">用户名</label>
+                        <input type="text" name="userName" class="form-control" placeholder="请输入用户名:">
+                    </div>
+                    <div class="form_group">
+                        <label for="form_password">手机号码</label>
+                        <input type="text" name="userTel" class="form-control" placeholder="请输入手机号码:">
+                    </div>
+                    <div class="form-group form-inline col-md-12">
+                        <label for="form_time">预约时间</label>
+                        <input class="form-control form_datetime" style="width:150px;"  data-date-format="dd MM yyyy"  data-link-format="yyyy-mm-dd" type="text" name="timePre"  readonly>-
+                        <input class="form-control form_datetime" style="width:150px;"  data-date-format="dd MM yyyy"  data-link-format="yyyy-mm-dd"  type="text" name="timeAfter" readonly>
+                    </div>
+                </form>
+                    <!--<form action="post" class="enroll_form" role="form">
+                        <div class="form_group">
+                            <label for="form_username">用户名</label>
+                            <input type="text" name="form_username" class="form-control" placeholder="请输入用户名:">
+                        </div>
+                        <div class="form_group">
+                            <label for="form_password">密&nbsp&nbsp&nbsp码</label>
+                            <input type="password" name="form_password" class="form-control" placeholder="请输入密码:">
+                        </div>
+                    </form>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="fitness/js/courseCombination.js"></script>
+</html>

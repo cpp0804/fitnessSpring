@@ -44,7 +44,18 @@ $(document).ready(function () {
                         console.log("错误", error)
                     },  //错误执行方法
                     success: function (info) {
-                        alert(info.message);
+                        console.log(info["message"]);
+                        if (info["message"] == "您已有该课程正在进行中") {
+                            alert("您已有该课程正在进行中");
+                            setTimeout(function () {
+                                window.location.href = "courseCombination.html";
+                            }, 1000);
+                        } else {
+                            alert("购买成功");
+                            setTimeout(function () {
+                                window.location.href = "courseCombination.html";
+                            }, 1000);
+                        }
                     }
                 })
             });
