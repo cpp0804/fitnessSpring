@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/html5shiv/html5shiv.min.js"></script>
+    <script src="lib/respond.js/respond.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="lib/artTemplate/template-native.js"></script>
+    <![end if]-->
+    <title>健身俱乐部</title>
+    <style type="text/css">
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .course_com{
+            height: 375px;
+        }
+        .course_com .container{
+            width: 1200px;
+            position: relative;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){
+            .course_comb .container{
+                width: 900px;
+            }
+        }
+        .course_com .container .image{
+            width: 480px;
+            height: 314px;
+            float: left;
+            padding-bottom: 20px;
+
+        }
+        .course_com .container .coursetitle{
+            margin-left: 30px;
+            font-size: 18px;
+
+        }
+        .course_com .container .coursenum{
+            margin-left: 30px;
+            font-size: 16px;
+        }
+        select{
+            background-color: #e3e3e3;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            /*appearance: none;*/
+            /*-webkit-appearance: none;*/
+        }
+        .classSession{
+            margin-left:30px;
+        }
+        .course_com .container  button{
+            position: relative;
+            left: 10%;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0;
+            margin-top: 40px;
+        }
+        .total{
+            font-size: 20px;
+            margin-left: 30px;
+            margin-top:40px;
+            width: 150px;
+        }
+
+    </style>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar wjs_nav" data-spy="affix" data-offset-top="41">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#wjs_nav_collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">
+                <span class="title">健身</span>
+                <span class="title2">俱乐部</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="purchase">
+    <!--<h3 class="title">购买</h3>-->
+    <div class="course_com" >
+        <div class="container"  id="course_com">
+            <img src="images/courseComb3.jpg" height="314" width="480" class="fl"/>
+            <b id="coursetitle" class="coursetitle"></b><br>
+            <b class="coursenum">购买节数</b><select name="classSession" class="classSession" id="classSession" >
+                <option value="1">5节</option>
+                <option value="2">10节</option>
+                <option value="3">15节</option>
+                <option value="4">20节</option>
+                <option value="5">25节</option>
+                <option value="6">30节</option>
+            </select><br>
+            <b id="total" class="total fl"></b>
+            <button id="pay" class="fl">支付</button>
+
+        </div>
+
+    </div>
+</div>
+
+<!--底部导航-->
+<section class="wjs_partner">
+    <div class="container">
+        <div class="contact fl">
+            <span class="head">健身俱乐部</span>
+            <span class="eng">QUALITY LIFE WITH EFFICIENCY</span>
+            <span class="address">地址：XXX省XX市XXX县XXX路XXX号<br>
+                                      邮箱：contact@fkadjkhsf.co<br>
+                                      电话：000-000-0000
+                </span>
+        </div>
+        <div class="navfooter fl">
+            <ul>
+                <li><a href="" class="active">网站首页</a></li>
+                <li><a href="">课程预约</a></li>
+                <li><a href="">课表查询</a></li>
+            </ul>
+        </div>
+        <div class="tips fr">健身知识
+            <ul>
+                <li><a href="#">生育性肥胖影响美观和健康，该如何预防?</a></li>
+                <li><a href="#">体重基数越小就越不容易瘦下来吗？</a></li>
+                <li><a href="#">运动后恢复对减重有多重要？</a></li>
+                <li><a href="#">跑步会粗小腿吗？</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</body>
+<script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="js/purchase.js"></script>
+</html>

@@ -15,8 +15,8 @@ $(document).ready(function () {
         debugger;
         $.each(xhr,function (index,obj) {
             debugger;
-            $("#course_comb").append("<img src="+obj['image']+" height=\"314\" width=\"480\" class=\"image fl\"/>\n" +
-                "            <div class=\"course_text fr\">\n" +
+            $("#course_comb").append(
+                "            <div class=\"course_text fl\">\n" +
                 "                <b id=\"course_title\">"+obj['title']+"</b><br>\n" +
                 "                <span id=\"course_desc\">"+obj['desc']+"</span>\n" +
                 "                <div class=\"appointment fr\"><button class=\'btn btn-primary btn-xs\' data-toggle=\"modal\" data-target=\"#modifyModal\"><span class=\'glyphicon glyphicon-edit\'></span>预约</button></div>\n" +
