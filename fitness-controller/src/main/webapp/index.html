@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-
+    <style>
+        .navstyle button{
+            border:none;
+            background-color: #fff;
+        }
+    </style>
     <!--[if lt IE 9]>
     <script src="lib/html5shiv/html5shiv.min.js"></script>
     <script src="lib/respond.js/respond.min.js"></script>
@@ -34,7 +39,7 @@
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="wjs_nav_collapse">
-                <ul class="nav navbar-nav navbar-right hidden-sm">
+                <ul class="nav navbar-nav navbar-right hidden-sm navstyle">
                     <li class="active"><a href="index.html">首页</a></li>
                     <li class="dropdown">
                         <a href="courseQuery.html" class="dropdown-toggle" data-toggle="dropdown">健身课目<span class="caret"></span></a>
@@ -70,6 +75,7 @@
                     </li>
                     <li><a href="enroll.html">注册</a></li>
                     <li><a href="login.html">登录</a></li>
+                    <li><a><button onclick="window.location.href='manage.html'">个人中心</button></a></li>
                 </ul>
             </div>
         </div>
@@ -232,7 +238,7 @@ EMS则是模拟这种人体的大脑信号，将运动信号直接传递给肌�
             </div>
             <div class="navfooter fl">
                 <ul>
-                    <li><a href="fitnessindex.html" class="active">网站首页</a></li>
+                    <li><a href="index.html" class="active">网站首页</a></li>
                     <li><a href="courseQuery.html">健身课目</a></li>
                 </ul>
             </div>
