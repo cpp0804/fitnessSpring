@@ -3,8 +3,10 @@ $(document).ready(function () {
         type: "GET",//请求方式
         url: "/course/getByPageSimple.do",//地址，就是json文件的请求路径
         dataType: "json",//数据类型可以为 text xml json  script  jsonp
-        beforeSend: ()=>{console.log("开始")}, //加载执行方法
-        error: (error)=>{console.log("错误",error)},  //错误执行方法
+        // beforeSend: ()=>{console.log("开始")}, //加载执行方法
+        error: function (error) {
+            console.log("错误", error)
+        },  //错误执行方法
         success: function (xhr) {
             debugger;
             console.log(xhr);
@@ -20,22 +22,25 @@ $(document).ready(function () {
                 var courseNum = parseInt(num);
                 // console.log(price);
                 // console.log(courseNum);
-                var total = unitprice*courseNum;
+                var total = unitprice * courseNum;
                 console.log(total);
                 var paytotal = document.querySelector("#total");
-                paytotal.innerHTML = "￥"+total;
+                paytotal.innerHTML = "￥" + total;
                 var id = xhr.courseId;
                 $.ajax({
                     type: "post",//请求方式
                     url: "/course/buyCourse.do",//地址，就是json文件的请求路径
-                    data:{
-                      courseId: id  ,
-                        courseNum:courseNum
+                    data: {
+                        courseId: id,
+                        courseNum: courseNum
                     },
                     dataType: "json",//数据类型可以为 text xml json  script  jsonp
-                    beforeSend: ()=>{console.log("开始")}, //加载执行方法
-                    error: (error)=>{console.log("错误",error)},  //错误执行方法
-                    success: function (info){
+                    //         beforeSend: () = > {console.log("开始")
+                    // }, //加载执行方法
+                    error: function (error) {
+                        console.log("错误", error)
+                    },  //错误执行方法
+                    success: function (info) {
                         alert(info.message);
                     }
                 })

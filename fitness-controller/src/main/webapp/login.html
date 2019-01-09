@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/enroll.css">
     <title>健身俱乐部</title>
     <style>
-        #login{
+        #login {
             margin-top: 15px;
         }
     </style>
@@ -35,16 +35,18 @@
                     </div>
                 </div>
                 <div class="form_bottom">
-                    <form action="post" class="enroll_form" role="form">
+                    <form class="enroll_form">
                         <div class="form_group">
                             <label for="form_username">用户名</label>
-                            <input type="text" name="username" class="form-control" placeholder="请输入用户名:">
+                            <input id="form_username" type="text" name="username" class="form-control"
+                                   placeholder="请输入用户名:">
                         </div>
                         <div class="form_group">
                             <label for="form_password">密&nbsp&nbsp&nbsp码</label>
-                            <input type="password" name="password" class="form-control" placeholder="请输入密码:">
+                            <input id="form_password" type="password" name="password" class="form-control"
+                                   placeholder="请输入密码:">
                         </div>
-                        <button type="submit" class="btn btn-success " id="login">登录</button>
+                        <button type="button" class="btn btn-success " id="login">登录</button>
                     </form>
                 </div>
             </div>
