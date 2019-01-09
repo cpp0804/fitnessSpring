@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="fitness/lib/bootstrap/css/bootstrap.min.css">
+    <link href="fitness/fitness/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" href="fitness/css/index.css">
+    <style type="text/css">
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .course_comb{
+            width: 100%;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .course_comb .container{
+            width: 1200px;
+            position: relative;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){
+            .course_comb .container{
+                width: 900px;
+            }
+        }
+        /* .course_comb{
+             height: 1100px;
+         }
+ */
+        .course_comb .container .image{
+            width: 480px;
+            height: 314px;
+            float: left;
+            padding-bottom: 20px;
+
+        }
+        .course_comb .container .course_text{
+            height: 314px;
+            padding-left: 50px;
+            max-width: 591px;
+            padding-bottom: 20px;
+        }
+
+        .course_comb .container .course_text b{
+            font-size: 18px;
+        }
+        .course_comb .container .course_text span{
+            font-size: 14px;
+            color: #666;
+            height: 120px;
+            line-height: 40px;
+        }
+        .course_comb .container .course_text .cost{
+            position: relative;
+            top: 10%;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .course_comb .container .course_text .cost a{
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /*具体课程*/
+        .course_comb .container .course_text .cost button{
+            color: #fff;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid transparent;
+            background-color: #e92322;
+            height: 55px;
+            outline: none;    //消除默认点击蓝色边框效果
+
+        }
+        .course_comb .container .course_text .appointment{
+            position: relative;
+            top: 10%;
+        }
+        .course_comb .container .course_text .appointment button{
+            position: relative;
+            right: 10%;
+            top: 10%;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0;
+        }
+        /*.image{
+            width: 480px;
+            height: 314px;
+            float: left;
+        }
+        .course_text{
+            float: right;
+        }*/
+    </style>
+    <script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- header-end -->
+    <div class="headercontent"></div>
+    <!-- 内容 -->
+    <div class="row content">
+
+        <div class="menu"></div>
+        <!--left-menu-end right-content-start  -->
+        <div class="col-md-10 right-content">
+            <ol class="breadcrumb" style="margin-top:10px;padding-left:0px;">
+                <li><span class="glyphicon glyphicon-map-marker"></span>当前位置：课程列表</li>
+            </ol>
+            <div class="course_list"  >
+                <table class="table table-hover table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>课程名称</th>
+                        <th id="name"></th>
+                    </tr>
+                    <tr>
+                        <th>课程节数</th>
+                        <th id="num"></th>
+                    </tr>
+                    <tr>
+                        <th>学员</th>
+                        <th id="student"></th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div><!-- right-content-end -->
+    </div><!-- row-end -->
+</div><!-- container-end -->
+</body>
+<script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="fitness/js/coachclassList.js"></script>
+</html>
