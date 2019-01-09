@@ -6,6 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
@@ -115,6 +118,8 @@
     </style>
     <script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <!--<script src="lib/jquery.dataTables.min.js"></script>-->
 </head>
 <body>
 <div class="container">
@@ -130,19 +135,13 @@
                 <li><span class="glyphicon glyphicon-map-marker"></span>当前位置：课程列表</li>
             </ol>
                 <div class="course_list"  >
-                    <table class="table table-hover table-bordered table-condensed">
+                    <table class="table table-hover table-bordered table-condensed" id="classlist">
                         <thead>
                         <tr>
                             <th>课程名称</th>
-                            <th id="name"></th>
-                        </tr>
-                        <tr>
                             <th>课程节数</th>
-                            <th id="num"></th>
-                        </tr>
-                        <tr>
                             <th>购买日期</th>
-                            <th id="purchasedate"></th>
+                            <th>预约</th>
                         </tr>
                         </thead>
                     </table>
@@ -153,6 +152,6 @@
     </div><!-- row-end -->
 </div><!-- container-end -->
 </body>
-<script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
+<!--<script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>-->
 <script type="text/javascript" src="js/classList.js"></script>
 </html>

@@ -7,15 +7,31 @@ $(document).ready(function () {
         error: (error)=>{console.log("错误",error)},  //错误执行方法
         success: function (xhr) {
             debugger;
-            console.log(xhr);
+            var obj = xhr["aaData"];
+            console.log(obj);
+           /* console.log(xhr);
+            var aaData=xhr["aaData"]
             // addcourse_comb(xhr);
             var name = document.querySelector("#name");
             var num = document.querySelector("#num");
             var purchasedate = document.querySelector("#purchasedate");
-            name.innerHTML = xhr.courseName;
-            num.innerHTML = xhr.courseNum;
-            purchasedate.innerHTML = xhr.createTime;
-
+            name.innerHTML = aaData["courseName"];
+            num.innerHTML = aaData["courseNum"];
+            purchasedate.innerHTML = aaData["createTime"];*/
+           $("#classlist").DataTable({
+               "searching":false,
+               "bAutoWidth": true, //是否自适应宽度
+               "bScrollCollapse": true, //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变
+               "columns": [
+                   {"data": "courseName"},
+                   {"data": "courseNum"},
+                   {"data": "createTime"}
+               ],
+               "data":obj,
+               'select': {
+                   'style': 'multi'
+               }
+           })
         }
     });
     /*function addcourse_comb(xhr){

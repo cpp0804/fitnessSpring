@@ -8,6 +8,7 @@ $(document).ready(function () {
         success: function (xhr) {
             debugger;
             var obj = xhr["aaData"];
+            console.log(obj);
            /* console.log(xhr);
             var aaData=xhr["aaData"]
             // addcourse_comb(xhr);
@@ -24,9 +25,9 @@ $(document).ready(function () {
                "columns": [
                    {"data": "courseName"},
                    {"data": "courseNum"},
-                   {"data": "courseTime"}
+                   {"data": "createTime"}
                ],
-               "data":obj.data,
+               "data":obj,
                'select': {
                    'style': 'multi'
                }

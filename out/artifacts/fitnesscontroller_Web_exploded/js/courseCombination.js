@@ -59,7 +59,7 @@ $(document).ready(function () {
                 "            <div class=\"course_text fr\">\n" +
                 "                <b id=\"course_title\">" + obj['name'] + "</b><br>\n" +
                 "                <span id=\"course_desc\">" + obj['description'] + "</span>\n" +
-                "                <div class=\"cost fr\" id=\"course_cost\"><button>" + obj['classPerPrice'] + "</button></div>\n" +
+                "                <div class=\"cost fr\" id=\"course_cost\"><button>" + obj['classPerPrice'] + '元/节' +"</button></div>\n" +
                 "                <div class=\"appointment fr\"><button  id=" + obj['name']+","+obj['classPerPrice']+","+ obj['courseId']+ " onclick='test(this)'>购买</button></div>\n" +
                 "            </div>")
         }

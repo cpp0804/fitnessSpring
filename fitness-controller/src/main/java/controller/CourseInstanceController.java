@@ -90,9 +90,9 @@ public class CourseInstanceController {
     @RequestMapping(value = "/getByPage.do")
     public @ResponseBody
     Object getByPage(HttpServletRequest request) {
-        String keys = request.getParameter("keys");
+//        String keys = request.getParameter("keys");
 //        Integer length = Integer.parseInt(request.getParameter("length"));
 //        Integer start = Integer.parseInt(request.getParameter("start"));
-        return courseInstanceService.getByPage(keys);
+        return courseInstanceService.getByPage();
     }
 }

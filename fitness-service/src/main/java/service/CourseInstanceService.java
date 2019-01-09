@@ -15,7 +15,7 @@ public interface CourseInstanceService {
 
 	public RequestResultVO delete(List<Integer> courseInstanceIds);
 
-    public Map<String,Object> getByPage(String keys);
+    public Map<String,Object> getByPage();
 
     }
 

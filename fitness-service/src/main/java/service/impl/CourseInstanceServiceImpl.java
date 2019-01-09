@@ -91,9 +91,9 @@ public class CourseInstanceServiceImpl implements CourseInstanceService {
     }
 
     @Override
-    public Map<String, Object> getByPage(String keys) {
+    public Map<String, Object> getByPage() {
         CourseInstanceExample courseInstanceExample = new CourseInstanceExample();
-        this.setCriteria(keys, courseInstanceExample);
+        this.setCriteria(courseInstanceExample);
         int totalrecords = (int) courseInstanceMapper.countByExample(courseInstanceExample);
 //
 //        Page page = new Page();
@@ -119,12 +119,13 @@ public class CourseInstanceServiceImpl implements CourseInstanceService {
         return map;
     }
 
-    private void setCriteria(String keys, CourseInstanceExample courseInstanceExample) {
-        if (keys == null || "{}".equals(keys))
-            return;
-        JSONObject jKeys = JSONObject.fromObject(keys);
+    private void setCriteria( CourseInstanceExample courseInstanceExample) {
+//        if (keys == null || "{}".equals(keys))
+//            return;
+//        JSONObject jKeys = JSONObject.fromObject(keys);
         CourseInstanceExample.Criteria criteria = courseInstanceExample.createCriteria();
         criteria.andRemainingReserveGreaterThan(0);
+        criteria.andCourseTimeGreaterThan(new Date());
 
     }
 

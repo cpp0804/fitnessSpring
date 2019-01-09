@@ -157,6 +157,7 @@
         creator, create_time, amender,
         amend_time)
         values (#{reserveId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{courseInstanceId,jdbcType=INTEGER},
+        #{status,jdbcType=VARCHAR},
         #{creator,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{amender,jdbcType=INTEGER},
         #{amendTime,jdbcType=TIMESTAMP})
     </insert>
