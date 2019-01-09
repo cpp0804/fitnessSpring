@@ -107,6 +107,18 @@
         .time{
             margin-top:5px;
         }
+        .bookingtable .booking{
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            width: 60px;
+            height: 28px;
+            background-color: #e92322;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0;
+        }
     </style>
     <script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -126,27 +138,20 @@
             <ol class="breadcrumb" style="margin-top:10px;padding-left:0px;">
                 <li><span class="glyphicon glyphicon-map-marker"></span>当前位置：课程预约</li>
             </ol>
-
-            <section class="course_comb">
-                <div class="container"  >
-                    <table class="table table-bordered table-condensed table-hover">
+                <div class="bookingtable">
+                    <table class="table table-bordered table-hover table-condensed " id="classbooking">
                         <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>课程名称</th>
-                                <th id="name"></th>
-                            </tr>
-                            <tr>
-                                <th>课程节数</th>
-                                <th id="num"></th>
-                            </tr>
-                            <tr>
-                                <th>购买日期</th>
-                                <th id="purchasedate"></th>
+                                <th>教练</th>
+                                <th>上课时间</th>
+                                <th>预约</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-            </section>
+
         </div><!-- right-content-end -->
     </div><!-- row-end -->
 </div><!-- container-end -->
