@@ -14,7 +14,21 @@ $(function () {
         forceParse: 0
     });
 });
+
+function test(obj) {
+    console.log(obj.id);
+    var value=obj.id.split(",");
+    console.log("value0"+value[0]);
+    console.log("value1"+value[1]);
+    $.cookie("courseName", value[0]);
+    $.cookie("coursePrice", value[1]);
+    $.cookie("courseId", value[2]);
+    window.location.href = "purchase.html"
+}
+
 $(document).ready(function () {
+
+
     $.ajax({
         type: "GET",//请求方式
         url: "/course/getByPageSimple.do",//地址，就是json文件的请求路径
@@ -30,6 +44,7 @@ $(document).ready(function () {
         }
     });
 
+
     function addcourse_comb(xhr) {
         console.log(xhr)
         // var obj=JSON.parse(xhr);
@@ -39,29 +54,17 @@ $(document).ready(function () {
         for (var i = 0; i < aaData.length; i++) {
             var obj = aaData[i];
             console.log("obj" + obj);
+            // $.cookie(obj['name'], obj['name']);
             $("#course_comb").append("<img src=" + obj['picture'] + " height=\"314\" width=\"480\" class=\"image fl\"/>\n" +
                 "            <div class=\"course_text fr\">\n" +
                 "                <b id=\"course_title\">" + obj['name'] + "</b><br>\n" +
                 "                <span id=\"course_desc\">" + obj['description'] + "</span>\n" +
                 "                <div class=\"cost fr\" id=\"course_cost\"><button>" + obj['classPerPrice'] + "</button></div>\n" +
-                "                <div class=\"appointment fr\"><a href='purchase.html'>购买</a></div>\n" +
+                "                <div class=\"appointment fr\"><button  id=" + obj['name']+","+obj['classPerPrice']+","+ obj['courseId']+ " onclick='test(this)'>购买</button></div>\n" +
                 "            </div>")
         }
-        // $.each(xhr,function (index,obj) {
-        //     debugger;
-        //     console.log(obj[index])
-        //     console.log(obj['name'])
-        //
-        //     $("#course_comb").append("<img src="+obj['picture']+" height=\"314\" width=\"480\" class=\"image fl\"/>\n" +
-        //         "            <div class=\"course_text fr\">\n" +
-        //         "                <b id=\"course_title\">"+obj['name']+"</b><br>\n" +
-        //         "                <span id=\"course_desc\">"+obj['description']+"</span>\n" +
-        //         "                <div class=\"cost fr\" id=\"course_cost\"><button>"+obj['classPerPrice']+"</button></div>\n" +
-        //         "                <div class=\"appointment fr\"><a href='fitness/purchase.html'>购买</a></div>\n" +
-        //         "            </div>")
-        //
-        // });
     }
+
 });
 
 /*

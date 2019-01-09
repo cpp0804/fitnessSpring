@@ -1,22 +1,24 @@
 $(document).ready(function () {
-    $.ajax({
-        type: "GET",//请求方式
-        url: "/course/getByPageSimple.do",//地址，就是json文件的请求路径
-        dataType: "json",//数据类型可以为 text xml json  script  jsonp
-        // beforeSend: ()=>{console.log("开始")}, //加载执行方法
-        error: function (error) {
-            console.log("错误", error)
-        },  //错误执行方法
-        success: function (xhr) {
-            debugger;
-            console.log(xhr);
+    // $.ajax({
+    //     type: "GET",//请求方式
+    //     url: "/course/getByPageSimple.do",//地址，就是json文件的请求路径
+    //     dataType: "json",//数据类型可以为 text xml json  script  jsonp
+    //     // beforeSend: ()=>{console.log("开始")}, //加载执行方法
+    //     error: function (error) {
+    //         console.log("错误", error)
+    //     },  //错误执行方法
+    //     success: function (xhr) {
+    //         debugger;
+    //         console.log(xhr);
             // addcourse_comb(xhr);
             var title = document.querySelector("#coursetitle");
-            title.innerHTML = xhr.title;
+            title.innerHTML = $.cookie("courseName");
             $("#pay").click(function () {
                 debugger;
-                var unitprice = xhr.classPerPrice;
-                console.log(unitprice);
+
+                console.log()
+                var unitprice = $.cookie("coursePrice")
+                console.log("unitprice"+unitprice);
                 var num = $("select[name='classSession']").find("option:selected").text();
                 // var price = parseInt(unitprice);
                 var courseNum = parseInt(num);
@@ -26,9 +28,10 @@ $(document).ready(function () {
                 console.log(total);
                 var paytotal = document.querySelector("#total");
                 paytotal.innerHTML = "￥" + total;
-                var id = xhr.courseId;
+                var id = $.cookie("courseId")
+                console.log("id:"+id)
                 $.ajax({
-                    type: "post",//请求方式
+                    type: "POST",//请求方式
                     url: "/course/buyCourse.do",//地址，就是json文件的请求路径
                     data: {
                         courseId: id,
@@ -45,9 +48,9 @@ $(document).ready(function () {
                     }
                 })
             });
-
-        }
-    });
+    //
+    //     }
+    // });
 
     /*function addcourse_comb(xhr){
         debugger;
