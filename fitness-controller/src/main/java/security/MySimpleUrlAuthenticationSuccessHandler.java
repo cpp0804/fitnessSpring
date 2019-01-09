@@ -2,6 +2,7 @@ package security;
 
 import model.Login;
 import model.User;
+import org.springframework.security.web.util.RedirectUrlBuilder;
 import service.LoginService;
 import service.RoleResourceService;
 import service.UserService;
@@ -46,6 +47,9 @@ public class MySimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentica
         printWriter.print(JSONObject.fromObject(authencationResult));
         printWriter.flush();
         printWriter.close();
+//        String url=String.valueOf( request.getHeader("Referer"));
+//        String url=buildHttpReturnUrlForRequest(request);
+//        getRedirectStrategy().sendRedirect(request,response, java.lang.String.valueOf(url));
 
     }
 
@@ -89,4 +93,18 @@ public class MySimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentica
         }
         return roleList;
     }
+
+//    protected String buildHttpReturnUrlForRequest(HttpServletRequest request)
+//            throws IOException, ServletException {
+//        RedirectUrlBuilder urlBuilder = new RedirectUrlBuilder();
+//        urlBuilder.setScheme("http");
+//        urlBuilder.setServerName(request.getServerName());
+//        urlBuilder.setPort(request.getServerPort());
+//        urlBuilder.setContextPath(request.getContextPath());
+//        urlBuilder.setServletPath(request.getServletPath());
+//        urlBuilder.setPathInfo(request.getPathInfo());
+//        urlBuilder.setQuery(request.getQueryString());
+//
+//        return urlBuilder.getUrl();
+//    }
 }

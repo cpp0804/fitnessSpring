@@ -12,7 +12,27 @@
 
 
     <security:http pattern="/resources/**" security="none"/>
-    <security:http pattern="/au.html" security="none"/>
+    <security:http pattern="/index.html" security="none"/>
+    <security:http pattern="/login.html" security="none"/>
+    <security:http pattern="/courseQuery.html" security="none"/>
+    <security:http pattern="/courseCombination.html" security="none"/>
+
+    <security:http pattern="/course/getByPageSimple.do" security="none"></security:http>
+
+
+
+    <security:http pattern="/fonts/**/*" security="none"></security:http>
+    <security:http pattern="/**/css/**/*" security="none"></security:http>
+    <security:http pattern="/less/**/*" security="none"></security:http>
+    <security:http pattern="/lib/**/*" security="none"></security:http>
+    <security:http pattern="/js/**/*" security="none"></security:http>
+    <security:http pattern="/images/**/*" security="none"></security:http>
+    <security:http pattern="/scss/**/*" security="none"></security:http>
+    <security:http pattern="/json/**/*" security="none"></security:http>
+
+
+    <security:http-firewall ref="defaultHttpFirewall"/>
+
 
     <security:http auto-config="false" use-expressions="true" entry-point-ref="myAuthenticationEntryPoint">
         <security:csrf disabled="true"/>
@@ -44,16 +64,24 @@
 
     <bean id="myUserDetailsService" class="security.MyUserDetailService"/>
 
-    <bean id="authenticationSuccessHandler" class="security.MySimpleUrlAuthenticationSuccessHandler"/>
+    <bean id="authenticationSuccessHandler" class="security.MySimpleUrlAuthenticationSuccessHandler">
+        <!--<property name="defaultTargetUrl" value="/login/login.do"/>-->
+        <!--<property name="redirectStrategy">-->
+            <!--<bean class="security.MyRedirectStrategy"></bean>-->
+        <!--</property>-->
+    </bean>
     <bean id="authenticationFailureHandler" class="security.MySimpleUrlAuthenticationFailureHandler">
         <property name="defaultFailureUrl" value="/login.html"/>
     </bean>
 
+    <!--<bean id="myRedirectStrategy" class="security.MyRedirectStrategy"/>-->
+
     <bean id="myAuthenticationEntryPoint"
           class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-        <constructor-arg name="loginFormUrl" value="/au.html"/>
+        <constructor-arg name="loginFormUrl" value="/login.html"/>
     </bean>
 
     <bean name="myPasswordEncoder" class="security.MyPasswordEncoder"/>
 
+    <bean id="defaultHttpFirewall" class="org.springframework.security.web.firewall.DefaultHttpFirewall"/>
 </beans>

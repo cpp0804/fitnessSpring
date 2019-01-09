@@ -24,11 +24,20 @@
 
 
     <!-- 静态文件映射 -->
-    <mvc:resources location="/" mapping="/**/*.html" />
-    <mvc:resources location="/" mapping="/**/*.js" />
-    <mvc:resources location="/" mapping="/**/*.css" />
-    <mvc:resources location="/" mapping="/**/*.png" />
-    <mvc:resources location="/" mapping="/**/*.gif" />
+    <!--<mvc:resources location="/" mapping="/*.html" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.js" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.css" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.less" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.gif" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.jpg" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.otf" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.eot" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.svg" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.ttf" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.woff" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.woff2" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.json" />-->
+    <!--<mvc:resources location="/" mapping="/**/*.woff2" />-->
 
 
     <task:annotation-driven/>
@@ -36,5 +45,5 @@
 
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     <!--静态资源访问-->
-    <!--<mvc:default-servlet-handler/>-->
+    <mvc:default-servlet-handler/>
 </beans>

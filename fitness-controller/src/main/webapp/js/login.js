@@ -1,15 +1,15 @@
 $(document).ready(function () {
-    // var user = {};
+     var user = {};
     $("#login").click(function () {
-        debugger;
+        //debugger;
         uname = $("input[name='username']").val();
-        console.log(username);
+        console.log(uname);
         pwd = $("input[name='password']").val();
-        console.log(password);
-        console.log(user);
+        console.log(pwd);
+        // console.log(user);
         $.ajax({
-            type: "GET",//请求方式
-            url: "j_spring_security_check",//地址，就是json文件的请求路径
+            type: "POST",//请求方式
+            url: "/j_spring_security_check",//地址，就是json文件的请求路径
             data:{
                 username: uname,
                 password: pwd
@@ -22,7 +22,10 @@ $(document).ready(function () {
                     if(xhr.role == 'coach'){
                         window.location.href='managecoach.html';
                     }else{
-                        window.location.href= 'manage.html';
+                        // debugger;
+                        console.log("student");
+                        var f=document.referrer;//之前页面url
+                        window.location.href=f;
                     }
                 }
         }
