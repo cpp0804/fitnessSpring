@@ -24,12 +24,10 @@
         .fr{
             float: right;
         }
-        .course_comb{
-            width: 100%;
-            padding-top: 100px;
-            padding-bottom: 100px;
+        .course_com{
+            height: 375px;
         }
-        .course_comb .container{
+        .course_com .container{
             width: 1200px;
             position: relative;
         }
@@ -38,69 +36,40 @@
                 width: 900px;
             }
         }
-        /* .course_comb{
-             height: 1100px;
-         }
- */
-        .course_comb .container .image{
+        .course_com .container .image{
             width: 480px;
             height: 314px;
             float: left;
             padding-bottom: 20px;
 
         }
-        .course_comb .container .course_text{
-            height: 314px;
-            padding-left: 50px;
-            max-width: 591px;
-            padding-bottom: 20px;
-        }
-
-        .course_comb .container .course_text b{
+        .course_com .container .coursetitle{
+            margin-left: 30px;
             font-size: 18px;
+
         }
-        .course_comb .container .course_text span{
-            font-size: 14px;
-            color: #666;
-            height: 120px;
-            line-height: 40px;
+        .course_com .container .coursenum{
+            margin-left: 30px;
+            font-size: 16px;
         }
-        .course_comb .container .course_text .cost{
-            position: relative;
-            top: 10%;
-            display: block;
-            width: 158px;
-            height: 61px;
-            background-color: #e92322;
-            line-height: 61px;
-            text-align: center;
+        select{
+            background-color: #e3e3e3;
             border-radius: 5px;
+            border: none;
+            outline: none;
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            /*appearance: none;*/
+            /*-webkit-appearance: none;*/
         }
-        .course_comb .container .course_text .cost a{
-            color: #fff;
-            font-size: 16px;
+        .classSession{
+            margin-left:30px;
         }
-
-        /*具体课程*/
-        .course_comb .container .course_text .cost button{
-            color: #fff;
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            border: 1px solid transparent;
-            background-color: #e92322;
-            height: 55px;
-            outline: none;    //消除默认点击蓝色边框效果
-
-        }
-        .course_comb .container .course_text .appointment{
+        .course_com .container  button{
             position: relative;
-            top: 10%;
-        }
-        .course_comb .container .course_text .appointment button{
-            position: relative;
-            right: 10%;
-            top: 10%;
+            left: 10%;
             color: #fff;
             font-size: 16px;
             display: block;
@@ -111,26 +80,15 @@
             text-align: center;
             border-radius: 5px;
             border: 0;
+            margin-top: 40px;
         }
-        /*.image{
-            width: 480px;
-            height: 314px;
-            float: left;
+        .total{
+            font-size: 20px;
+            margin-left: 30px;
+            margin-top:40px;
+            width: 150px;
         }
-        .course_text{
-            float: right;
-        }*/
-        select{
-            background-color: #2b2b2b;
-            border: none;
-            outline: none;
-            width: 24%;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            /*appearance: none;*/
-            /*-webkit-appearance: none;*/
-        }
+
     </style>
 </head>
 <body>
@@ -150,15 +108,26 @@
         </div>
     </div>
 </nav>
-<div class="">
-    <select name="classSession" id="">
-        <option value="1">5节</option>
-        <option value="2">10节</option>
-        <option value="3">15节</option>
-        <option value="4">20节</option>
-        <option value="5">25节</option>
-        <option value="6">30节</option>
-    </select>
+<div class="purchase">
+    <!--<h3 class="title">购买</h3>-->
+    <div class="course_com" >
+        <div class="container"  id="course_com">
+            <img src="images/courseComb3.jpg" height="314" width="480" class="fl"/>
+            <b id="coursetitle" class="coursetitle"></b><br>
+            <b class="coursenum">购买节数</b><select name="classSession" class="classSession" id="classSession" >
+                <option value="1">5节</option>
+                <option value="2">10节</option>
+                <option value="3">15节</option>
+                <option value="4">20节</option>
+                <option value="5">25节</option>
+                <option value="6">30节</option>
+            </select><br>
+            <b id="total" class="total fl"></b>
+            <button id="pay" class="fl">支付</button>
+
+        </div>
+
+    </div>
 </div>
 
 <!--底部导航-->
@@ -190,49 +159,7 @@
     </div>
 </section>
 
-<!--<button class="btn btn-primary" data-toggle="modal" data-target="#modifyModal">测试</button>-->
-<div class="modal fade in" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog"  role="document" >
-        <div class="modal-content" >
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style="color: black;">预约课程</h4>
-            </div>
-            <div class="modal-body form-horizontal col-md-12">
-                <form action="post" class="enroll_form" role="form">
-                    <div class="form_group">
-                        <label for="form_username">用户名</label>
-                        <input type="text" name="userName" class="form-control" placeholder="请输入用户名:">
-                    </div>
-                    <div class="form_group">
-                        <label for="form_password">手机号码</label>
-                        <input type="text" name="userTel" class="form-control" placeholder="请输入手机号码:">
-                    </div>
-                    <div class="form-group form-inline col-md-12">
-                        <label for="form_time">预约时间</label>
-                        <input class="form-control form_datetime" style="width:150px;"  data-date-format="dd MM yyyy"  data-link-format="yyyy-mm-dd" type="text" name="timePre"  readonly>-
-                        <input class="form-control form_datetime" style="width:150px;"  data-date-format="dd MM yyyy"  data-link-format="yyyy-mm-dd"  type="text" name="timeAfter" readonly>
-                    </div>
-                </form>
-                <!--<form action="post" class="enroll_form" role="form">
-                    <div class="form_group">
-                        <label for="form_username">用户名</label>
-                        <input type="text" name="form_username" class="form-control" placeholder="请输入用户名:">
-                    </div>
-                    <div class="form_group">
-                        <label for="form_password">密&nbsp&nbsp&nbsp码</label>
-                        <input type="password" name="form_password" class="form-control" placeholder="请输入密码:">
-                    </div>
-                </form>-->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-success" id="submit">提交</button>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 <script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="js/courseCombination.js"></script>
+<script type="text/javascript" src="js/purchase.js"></script>
 </html>
