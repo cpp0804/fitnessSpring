@@ -11,25 +11,25 @@ $(document).ready(function () {
     //         debugger;
     //         console.log(xhr);
             // addcourse_comb(xhr);
-            var title = document.querySelector("#coursetitle");
-            title.innerHTML = $.cookie("courseName");
-            $("#pay").click(function () {
-                debugger;
 
-                console.log()
-                var unitprice = $.cookie("coursePrice")
-                console.log("unitprice"+unitprice);
-                var num = $("select[name='classSession']").find("option:selected").text();
-                // var price = parseInt(unitprice);
+            $('#classSession').change(function(){
+                var unitprice = $.cookie("coursePrice");
+                var num =$(this).children('option:selected').val();//这就是selected的值
                 var courseNum = parseInt(num);
-                // console.log(price);
-                // console.log(courseNum);
                 var total = unitprice * courseNum;
                 console.log(total);
                 var paytotal = document.querySelector("#total");
                 paytotal.innerHTML = "￥" + total;
-                var id = $.cookie("courseId")
-                console.log("id:"+id)
+            });
+            var title = document.querySelector("#coursetitle");
+            title.innerHTML = $.cookie("courseName");
+            $("#pay").click(function () {
+                debugger;
+                var num = $("select[name='classSession']").find("option:selected").text();
+                // var price = parseInt(unitprice);
+                var courseNum = parseInt(num);
+                var id = $.cookie("courseId");
+                console.log("id:"+id);
                 $.ajax({
                     type: "POST",//请求方式
                     url: "/course/buyCourse.do",//地址，就是json文件的请求路径
