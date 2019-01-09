@@ -1,17 +1,24 @@
 $(document).ready(function () {
     $.ajax({
         type: "GET",//请求方式
-        url: "js/course.json",//地址，就是json文件的请求路径
+        url: "/userCourse/getByPageUser.do",//地址，就是json文件的请求路径
         dataType: "json",//数据类型可以为 text xml json  script  jsonp
         beforeSend: ()=>{console.log("开始")}, //加载执行方法
         error: (error)=>{console.log("错误",error)},  //错误执行方法
         success: function (xhr) {
             debugger;
             console.log(xhr);
-            addcourse_comb(xhr);
+            // addcourse_comb(xhr);
+            var name = document.querySelector("#name");
+            var num = document.querySelector("#num");
+            var purchasedate = document.querySelector("#purchasedate");
+            name.innerHTML = xhr.courseName;
+            num.innerHTML = xhr.courseNum;
+            purchasedate.innerHTML = xhr.createTime;
+
         }
     });
-    function addcourse_comb(xhr){
+    /*function addcourse_comb(xhr){
         debugger;
         $.each(xhr,function (index,obj) {
             debugger;
@@ -23,6 +30,6 @@ $(document).ready(function () {
                 "            </div>")
 
         });
-    }
+    }*/
 });
 
