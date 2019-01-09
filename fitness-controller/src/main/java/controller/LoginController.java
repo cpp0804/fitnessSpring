@@ -96,9 +96,9 @@ public class LoginController {
         return loginService.getByPage(keys, length, start);
     }
 
-    @RequestMapping(value="/login.do")
-    public String login(HttpServletRequest request){
-        String url=request.getHeader("Referer");
-        return url;
-    }
+//    @RequestMapping(value="/login.do")
+//    public String login(HttpServletRequest request){
+//        String url=request.getHeader("Referer");
+//        return url;
+//    }
 }
