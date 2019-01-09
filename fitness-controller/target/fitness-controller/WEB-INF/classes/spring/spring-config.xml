@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+
+    <context:component-scan base-package="controller"/>
+    <context:component-scan base-package="quartz"/>
+    <!--<context:component-scan base-package="service"/>-->
+
+
+    <!-- 静态文件映射 -->
+    <mvc:resources location="/" mapping="/fitness/*.html" />
+    <mvc:resources location="/" mapping="/fitness/**/*.js" />
+    <mvc:resources location="/" mapping="/fitness/**/*.css" />
+    <mvc:resources location="/" mapping="/fitness/**/*.png" />
+    <mvc:resources location="/" mapping="/fitness/**/*.gif" />
+    <mvc:resources location="/" mapping="/fitness/**/*.jpg" />
+
+
+    <task:annotation-driven/>
+    <mvc:annotation-driven/>
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <!--静态资源访问-->
+    <!--<mvc:default-servlet-handler/>-->
+</beans>

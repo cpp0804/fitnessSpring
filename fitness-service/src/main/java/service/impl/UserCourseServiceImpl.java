@@ -148,7 +148,7 @@ public class UserCourseServiceImpl implements UserCourseService {
         criteria.andCourseIdEqualTo(courseId);
         criteria.andUserIdEqualTo(userId);
         criteria.andRemainingNumGreaterThan(0);
-        return userCourseMapper.selectByExample(userCourseExample).get(0);
+        return userCourseMapper.selectByExample(userCourseExample).size() == 0 ? null : userCourseMapper.selectByExample(userCourseExample).get(0);
     }
 
     private void setCriteria(String keys, UserCourseExample userCourseExample) {

@@ -151,7 +151,7 @@ public class CourseServiceImpl implements CourseService {
         User user = userService.getSessionUser();
         UserCourse userCourseNotFinished = userCourseService.findByCourseAndUserNotFinished(courseId, user.getUserId());
         if (userCourseNotFinished != null) {
-            throw new BizException(Public.BUY_COURSE_EXISTING);
+            return ResultBuilder.buildSuccessResult(Public.BUY_COURSE_EXISTING, "0");
         }
         Course course = courseMapper.selectByPrimaryKey(courseId);
         payCourse(courseId, course.getClassPerPrice() * courseNum);
@@ -160,6 +160,7 @@ public class CourseServiceImpl implements CourseService {
         userCourse.setUserId(user.getUserId());
         userCourse.setCourseId(courseId);
         userCourse.setCourseNum(courseNum);
+        userCourse.setRemainingNum(courseNum);
         return userCourseService.insert(userCourse);
     }
 

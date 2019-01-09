@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程预约</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="fitness/lib/bootstrap/css/bootstrap.min.css">
+    <link href="fitness/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="fitness/css/global.css">
+    <link rel="stylesheet" href="fitness/css/index.css">
+    <style type="text/css">
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .course_comb{
+            width: 100%;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .course_comb .container{
+            width: 1200px;
+            position: relative;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){
+            .course_comb .container{
+                width: 900px;
+            }
+        }
+        /* .course_comb{
+             height: 1100px;
+         }
+ */
+        .course_comb .container .image{
+            width: 480px;
+            height: 314px;
+            float: left;
+            padding-bottom: 20px;
+
+        }
+        .course_comb .container .course_text{
+            height: 314px;
+            padding-left: 50px;
+            max-width: 591px;
+            padding-bottom: 20px;
+        }
+
+        .course_comb .container .course_text b{
+            font-size: 18px;
+        }
+        .course_comb .container .course_text span{
+            font-size: 14px;
+            color: #666;
+            height: 120px;
+            line-height: 40px;
+        }
+        .course_comb .container .course_text .cost{
+            position: relative;
+            top: 10%;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .course_comb .container .course_text .cost a{
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /*具体课程*/
+        .course_comb .container .course_text .cost button{
+            color: #fff;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid transparent;
+            background-color: #e92322;
+            height: 55px;
+            outline: none;    //消除默认点击蓝色边框效果
+
+        }
+        .course_comb .container .course_text .appointment{
+            position: relative;
+            top: 10%;
+        }
+        .course_comb .container .course_text .appointment button{
+            position: relative;
+            right: 10%;
+            top: 10%;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            width: 158px;
+            height: 61px;
+            background-color: #e92322;
+            line-height: 61px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0;
+        }
+        .time{
+            margin-top:5px;
+        }
+        .bookingtable .booking{
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            width: 60px;
+            height: 28px;
+            background-color: #e92322;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0;
+        }
+    </style>
+    <script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="fitness/lib/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <!-- header-end -->
+    <div class="headercontent"></div>
+    <!-- 内容 -->
+    <div class="row content">
+
+        <div class="menu"></div>
+        <!--left-menu-end right-content-start  -->
+        <div class="col-md-10 right-content">
+            <ol class="breadcrumb" style="margin-top:10px;padding-left:0px;">
+                <li><span class="glyphicon glyphicon-map-marker"></span>当前位置：课程预约</li>
+            </ol>
+                <div class="bookingtable">
+                    <table class="table table-bordered table-hover table-condensed " id="classbooking">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>课程名称</th>
+                                <th>教练</th>
+                                <th>上课时间</th>
+                                <th>预约</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+        </div><!-- right-content-end -->
+    </div><!-- row-end -->
+</div><!-- container-end -->
+<!--<div class="modal fade in" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog"  role="document" >
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="color: black;">预约课程</h4>
+            </div>
+            <div class="modal-body form-horizontal col-md-12">
+                <form action="post" class="enroll_form" role="form">
+                    <div class="form_group">
+                        <label for="form_username">用户名</label>
+                        <input type="text" name="userName" class="form-control" placeholder="请输入用户名:">
+                    </div>
+                    <div class="form_group">
+                        <label for="form_password">手机号码</label>
+                        <input type="text" name="userTel" class="form-control" placeholder="请输入手机号码:">
+                    </div>
+                    <div class="form-group form-inline col-md-12 time">
+                        <label for="form_time">预约时间</label>
+                        <input class="form-control form_datetime" style="width:150px;"  data-date-format="dd MM yyyy"  data-link-format="yyyy-mm-dd" type="text" name="timePre"  readonly>-
+                        <input class="form-control form_datetime" style="width:150px;"  data-date-format="dd MM yyyy"  data-link-format="yyyy-mm-dd"  type="text" name="timeAfter" readonly>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+</body>
+<script type="text/javascript" src="fitness/lib/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="fitness/js/classBooking.js"></script>
+</html>

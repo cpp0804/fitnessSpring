@@ -18,69 +18,88 @@ import pojo.RequestResultVO;
 import common.util.HttpResponseConstants.Public;
 
 @Controller
-@RequestMapping(value="/user")
+@RequestMapping(value = "/user")
 public class UserController {
 
-	@Autowired
-	private UserService userService;
-	/**
-	 * 新增
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/insert.do")
-	public @ResponseBody RequestResultVO insert(HttpServletRequest request){
-		String userString = request.getParameter("user");
-User user = null;
-		try{
-user = JsonFastUtil.parseObject(userString, User.class);
-		}catch(Exception e){
-			throw new BizException(Public.ERROR_700);
-		}
-		return userService.insert(user);
-	}
-	/**
-	 * 修改
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/update.do")
-	public @ResponseBody RequestResultVO update(HttpServletRequest request){
-		String userString = request.getParameter("user");
-User user = null;
-		try{
-user = JsonFastUtil.parseObject(userString, User.class);
-		}catch(Exception e){
-			throw new BizException(Public.ERROR_700);
-		}
-		return userService.update(user);
-	}
-	/**
-	 * 删除
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value="/delete.do")
-	public @ResponseBody RequestResultVO delete(HttpServletRequest request){
-		String userIdsString = request.getParameter("userIds");
-		List<Integer> userIds;
-    try{
-userIds = CommonUtils.idsArrayToList(userIdsString);
-    }catch(Exception e){
-    throw new BizException(Public.ERROR_700);
-    }
-    return userService.delete(userIds);
-    }
+    @Autowired
+    private UserService userService;
+
     /**
-    * 分页查询
-    * @param request
-    * @return
-    */
-    @RequestMapping(value="/getByPage.do")
-    public @ResponseBody Object getByPage(HttpServletRequest request){
-    String keys = request.getParameter("keys");
-    Integer length = Integer.parseInt(request.getParameter("length"));
-    Integer start = Integer.parseInt(request.getParameter("start"));
-    return userService.getByPage(keys, length, start);
+     * 新增
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/insert.do")
+    public @ResponseBody
+    RequestResultVO insert(HttpServletRequest request) {
+        String userString = request.getParameter("user");
+        User user = null;
+        try {
+            user = JsonFastUtil.parseObject(userString, User.class);
+        } catch (Exception e) {
+            throw new BizException(Public.ERROR_700);
+        }
+        return userService.insert(user);
     }
+
+    /**
+     * 修改
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/update.do")
+    public @ResponseBody
+    RequestResultVO update(HttpServletRequest request) {
+        String userString = request.getParameter("user");
+        User user = null;
+        try {
+            user = JsonFastUtil.parseObject(userString, User.class);
+        } catch (Exception e) {
+            throw new BizException(Public.ERROR_700);
+        }
+        return userService.update(user);
     }
+
+    /**
+     * 删除
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/delete.do")
+    public @ResponseBody
+    RequestResultVO delete(HttpServletRequest request) {
+        String userIdsString = request.getParameter("userIds");
+        List<Integer> userIds;
+        try {
+            userIds = CommonUtils.idsArrayToList(userIdsString);
+        } catch (Exception e) {
+            throw new BizException(Public.ERROR_700);
+        }
+        return userService.delete(userIds);
+    }
+
+    /**
+     * 分页查询
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/getByPage.do")
+    public @ResponseBody
+    Object getByPage(HttpServletRequest request) {
+        String keys = request.getParameter("keys");
+        Integer length = Integer.parseInt(request.getParameter("length"));
+        Integer start = Integer.parseInt(request.getParameter("start"));
+        return userService.getByPage(keys, length, start);
+    }
+
+    @RequestMapping(value = "/getStudentList.do")
+    public @ResponseBody
+    Object getStudentList(HttpServletRequest request) {
+        Integer courseInstanceId = Integer.parseInt(request.getParameter("courseInstanceId"));
+        return userService.getStudentList(courseInstanceId);
+    }
+}
