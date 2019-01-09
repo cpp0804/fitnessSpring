@@ -17,7 +17,7 @@ $(function () {
 $(document).ready(function () {
     $.ajax({
         type: "GET",//请求方式
-        url: "js/course.json",//地址，就是json文件的请求路径
+        url: "/course/getByPageSimple.do",//地址，就是json文件的请求路径
         dataType: "json",//数据类型可以为 text xml json  script  jsonp
         beforeSend: ()=>{console.log("开始")}, //加载执行方法
         error: (error)=>{console.log("错误",error)},  //错误执行方法
@@ -31,18 +31,19 @@ $(document).ready(function () {
         debugger;
         $.each(xhr,function (index,obj) {
             debugger;
-            $("#course_comb").append("<img src="+obj['image']+" height=\"314\" width=\"480\" class=\"image fl\"/>\n" +
+            $("#course_comb").append("<img src="+obj['picture']+" height=\"314\" width=\"480\" class=\"image fl\"/>\n" +
                 "            <div class=\"course_text fr\">\n" +
-                "                <b id=\"course_title\">"+obj['title']+"</b><br>\n" +
-                "                <span id=\"course_desc\">"+obj['desc']+"</span>\n" +
-                "                <div class=\"cost fr\" id=\"course_cost\"><button>"+obj['cost']+"</button></div>\n" +
-                "                <div class=\"appointment fr\"><button class=\'btn btn-primary btn-xs\' data-toggle=\"modal\" data-target=\"#modifyModal\"><span class=\'glyphicon glyphicon-edit\'></span>购买</button></div>\n" +
+                "                <b id=\"course_title\">"+obj['name']+"</b><br>\n" +
+                "                <span id=\"course_desc\">"+obj['description']+"</span>\n" +
+                "                <div class=\"cost fr\" id=\"course_cost\"><button>"+obj['classPerPrice']+"</button></div>\n" +
+                "                <div class=\"appointment fr\"><a href='fitness/purchase.html'>购买</a></div>\n" +
                 "            </div>")
 
         });
     }
 });
 
+/*
 $("#submit").click(function () {
     var key = {};
     key["name"] = $("input[name = 'userName']").val();
@@ -54,7 +55,7 @@ $("#submit").click(function () {
     console.log(key["timePre"]);
     console.log(key["timeAfter"]);
     $.ajax({
-        type: "GET",//请求方式
+        type: "post",//请求方式
         url: "js/course.json",//地址，就是json文件的请求路径
         data:{
             key:key
@@ -66,4 +67,4 @@ $("#submit").click(function () {
             alert("提交成功");
         }
     });
-});
+});*/
