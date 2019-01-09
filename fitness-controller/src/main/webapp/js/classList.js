@@ -8,14 +8,14 @@ $(document).ready(function () {
         success: function (xhr) {
             debugger;
             console.log(xhr);
+            var aaData=xhr["aaData"]
             // addcourse_comb(xhr);
             var name = document.querySelector("#name");
             var num = document.querySelector("#num");
             var purchasedate = document.querySelector("#purchasedate");
-            name.innerHTML = xhr.courseName;
-            num.innerHTML = xhr.courseNum;
-            purchasedate.innerHTML = xhr.createTime;
-
+            name.innerHTML = aaData["courseName"];
+            num.innerHTML = aaData["courseNum"];
+            purchasedate.innerHTML = aaData["createTime"];
         }
     });
     /*function addcourse_comb(xhr){
